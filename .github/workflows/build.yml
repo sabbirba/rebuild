@@ -62,11 +62,17 @@ jobs:
             find build -type f \( -name '*.zip' -o -name '*.tar.gz' \) -print -delete || true
           fi
 
+      - name: Set release date (UTC)
+        id: release_date
+        run: |
+          # Produce a stable YYYY-MM-DD date string for the release tag/name
+          echo "date=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
       - name: Create GitHub Release and upload assets
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: build-${{ github.run_number }}
-          name: ReBuild Build ${{ github.run_number }}
+          tag_name: build-${{ steps.release_date.outputs.date }}
+          name: ReBuild ${{ steps.release_date.outputs.date }}
           body: ${{ steps.changelog.outputs.body }}
           files: build/**
         env:
