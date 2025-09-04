@@ -130,6 +130,15 @@ set_prebuilts() {
 	HTMLQ="${BIN_DIR}/htmlq/htmlq-${arch}"
 	AAPT2="${BIN_DIR}/aapt2/aapt2-${arch}"
 	TOML="${BIN_DIR}/toml/tq-${arch}"
+
+	# Prefer system htmlq if available; on macOS the bundled linux binaries won't run.
+	if command -v htmlq >/dev/null 2>&1; then
+		HTMLQ="$(command -v htmlq)"
+	fi
+	if [ ! -x "$HTMLQ" ]; then
+		epr "htmlq not found or not executable at '$HTMLQ'.\nPlease install a compatible htmlq (macOS: 'brew install htmlq') or put a compatible binary in 'bin/htmlq/'."
+		abort "htmlq is required for HTML parsing"
+	fi
 }
 
 config_update() {
@@ -185,7 +194,7 @@ _req() {
 	local ip="$1" op="$2"
 	shift 2
 	if [ "$op" = - ]; then
-		if ! curl -L -c "$TEMP_DIR/cookie.txt" -b "$TEMP_DIR/cookie.txt" --connect-timeout 5 --retry 0 --fail -s -S "$@" "$ip"; then
+		if ! curl -L -c "$TEMP_DIR/cookie.txt" -b "$TEMP_DIR/cookie.txt" --connect-timeout 15 --retry 3 --retry-delay 2 --fail -s -S "$@" "$ip"; then
 			epr "Request failed: $ip"
 			return 1
 		fi
@@ -197,7 +206,7 @@ _req() {
 			while [ -f "$dlp" ]; do sleep 1; done
 			return
 		fi
-		if ! curl -L -c "$TEMP_DIR/cookie.txt" -b "$TEMP_DIR/cookie.txt" --connect-timeout 5 --retry 0 --fail -s -S "$@" "$ip" -o "$dlp"; then
+		if ! curl -L -c "$TEMP_DIR/cookie.txt" -b "$TEMP_DIR/cookie.txt" --connect-timeout 15 --retry 3 --retry-delay 2 --fail -s -S "$@" "$ip" -o "$dlp"; then
 			epr "Request failed: $ip"
 			return 1
 		fi
