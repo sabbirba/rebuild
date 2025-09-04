@@ -369,8 +369,13 @@ get_apkmirror_vers() {
 }
 get_apkmirror_pkg_name() { sed -n 's;.*id=\(.*\)" class="accent_color.*;\1;p' <<<"$__APKMIRROR_RESP__"; }
 get_apkmirror_resp() {
-	__APKMIRROR_RESP__=$(req "${1}" -)
-	__APKMIRROR_CAT__="${1##*/}"
+	local u="$1"
+	# Normalize apkmirror host to www.apkmirror.com when users supply apkmirror.com
+	u="${u/https:\/\/apkmirror.com/https://www.apkmirror.com}"
+	u="${u/http:\/\/apkmirror.com/http://www.apkmirror.com}"
+	u="${u%/}"
+	__APKMIRROR_RESP__=$(req "${u}" -) || return 1
+	__APKMIRROR_CAT__="${u##*/}"
 }
 
 # -------------------- uptodown --------------------
