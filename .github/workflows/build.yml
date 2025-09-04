@@ -55,6 +55,13 @@ jobs:
             echo "body=Build artifacts" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Remove zip and tar.gz from release assets
+        run: |
+          # Prevent uploading generated source archives to the GitHub Release
+          if [ -d build ]; then
+            find build -type f \( -name '*.zip' -o -name '*.tar.gz' \) -print -delete || true
+          fi
+
       - name: Create GitHub Release and upload assets
         uses: softprops/action-gh-release@v1
         with:
