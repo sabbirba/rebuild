@@ -59,7 +59,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: build-${{ github.run_number }}
-          name: ReBuild build ${{ github.run_number }}
+          name: ReBuild Build ${{ github.run_number }}
           body: ${{ steps.changelog.outputs.body }}
           files: build/**
         env:
