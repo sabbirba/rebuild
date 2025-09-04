@@ -1,4 +1,4 @@
-# ReBuild Build  
+# ReBuild
 
 Get the [latest APKs release](https://github.com/sabbirba/rebuild/releases).
 
