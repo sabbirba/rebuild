@@ -27,124 +27,59 @@
    git clone https://github.com/sabbirba/rebuild.git
    cd rebuild
    ```
-
-2. Install [Ninja](https://ninja-build.org/) (if not already installed):
-   - Using package manager (e.g., `apt`, `brew`, `choco`):
-     ```bash
-     # Example for Ubuntu
-     sudo apt install ninja-build
-     ```
-   - Or download from the [Ninja releases page](https://github.com/ninja-build/ninja/releases).
-
-3. Install [Rust](https://www.rust-lang.org/tools/install) (if not already installed):
+2. Install tooling (examples on macOS):
    ```bash
-   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   # Homebrew examples
+   brew install ninja python rustup
+   rustup default stable
    ```
-
-4. Install [Android SDK Command-line Tools](https://developer.android.com/studio#command-tools) (if not already installed):
-   - Download the Command-line Tools only option.
-   - Extract and set up in `ANDROID_SDK_ROOT` (e.g., `~/Android/Sdk`).
-
-5. Install required Android SDK packages:
+3. Android SDK (example for macOS):
+   - Install Command-line Tools and set ANDROID_SDK_ROOT (e.g. ~/Library/Android/sdk)
    ```bash
    sdkmanager "platform-tools" "platforms;android-30" "build-tools;30.0.3"
    ```
-
-6. Install [Git](https://git-scm.com/downloads) (if not already installed):
-   - Download and install from the official website.
-
-7. Install [Python 3](https://www.python.org/downloads/) (if not already installed):
-   - Download and install from the official website.
-
-8. Install [Docker](https://www.docker.com/get-started) (if not already installed):
-   - Follow the official installation guide for your platform.
-
-9. Build the project:
+4. Build:
    ```bash
    ./build.sh
    ```
+5. Output:
+   - Built APKs will be in the `output/` directory.
 
-10. Find the built APKs in the `output/` directory.
+Build notes
+- The project applies binary patches to official APKs; it does not include app source code.
+- Play Store updates will replace patched APKs unless updates are blocked.
 
-</details>
+Usage & output
+- Find generated APKs in output/
+- Install on device with adb:
+  ```bash
+  adb install -r output/<app>-patched.apk
+  ```
 
-# About the apps
-
-This project produces APK-only patched builds for a set of popular Android apps. It downloads official APKs from the configured sources and applies binary patches to enable or disable features, backport device-specific flags, or remove undesired behavior. The repository does not redistribute app source code — it modifies released APKs.
-
-Supported apps (brief):
-- YouTube — official Google YouTube app; Default patches enabled for APK-only builds.
-- Music (YouTube Music) — YouTube Music with optional UI tweaks (e.g., hide category bar).
-- Spotify — patched Spotify APK with basic modifications.
-- Google Photos — adds Pixel preload / Pixel experience flags via patches.
-- Facebook — patches to disable auto-play, in-app browser, video looping/sound, remove marketplace tab.
-- Messenger — patched Messenger APK.
-- Instagram — patched Instagram APK.
-
-See "Apps & Features" below for per-app features.
-
-# Apps & Features
-
-This repository produces APK patched builds for the apps below. For each app: Features lists the patches / modifications applied;
-
-<a id="youtube"></a>
+Apps & Features
 - YouTube
-  - Features: Default patches enabled (APK build)
-  - Use:
-    - Usability: UI and behavior remain the official app; patches tweak/enable flags and remove unwanted behaviors while preserving core playback, subscriptions, and recommendations.
-    - Notes: Play Store updates will replace the patched APK unless you block them.
-<a id="music"></a>
-- Music (YouTube Music)
-  - Features:
-    - Hide category bar
-  - Use:
-    - Usability: Same playback and library features as the official app; optional UI tweaks (e.g., hiding the category bar) reduce clutter while keeping search, playlists, and playback intact.
-    - Notes: UI patches are cosmetic and reversible by installing the stock APK.
-<a id="spotify"></a>
+  - Default APK-only patches; preserves core playback and recommendations.
+- YouTube Music
+  - Optional UI tweaks (e.g., hide category bar).
 - Spotify
-  - Features: standard patched APK (no special patches listed)
-  - Use:
-    - Usability: Retains standard Spotify experience (playlists, search, offline if available for your account); patches aim for compatibility/behavior tweaks without altering account or subscription requirements.
-    - Notes: Do not expect subscription changes — patches do not enable paid features.
-<a id="googlephotos"></a>
+  - Standard patched APK — compatibility tweaks only.
 - Google Photos
-  - Features:
-    - com.google.android.apps.photos.nexus_preload
-    - com.google.android.apps.photos.NEXUS_PRELOAD
-    - com.google.android.feature.PIXEL_2021_EXPERIENCE
-    - com.google.android.feature.PIXEL_2022_EXPERIENCE
-  - Use:
-    - Usability: Enables Pixel/preview features (preloads, experience flags) on non‑Pixel devices to mimic Pixel behavior; core gallery, backup, and editing functions remain unchanged.
-    - Notes: Some Pixel-only cloud features may still require Google account/device compatibility.
-<a id="facebook"></a>
+  - Enables Pixel-related flags (nexus_preload, PIXEL_2021_EXPERIENCE, PIXEL_2022_EXPERIENCE).
 - Facebook
-  - Features:
-    - Disable auto-play videos
-    - Disable in-app browser
-    - Disable video looping
-    - Disable video sound by default
-    - Remove marketplace tab
-  - Use:
-    - Usability: Reduces distracting behaviors (autoplay, in-app browser) for a cleaner, less data-heavy experience while keeping news feed, messaging, and notifications functional.
-    - Notes: Some feature toggles may be visible in-app depending on Facebook's UI version.
-<a id="messenger"></a>
+  - Disable autoplay, in-app browser, looping, default video sound; remove marketplace tab.
 - Messenger
-  - Features: default patched APK for Messenger
-  - Use:
-    - Usability: Preserves core messaging, calls, and notifications; patches focus on removing undesirable behaviors while keeping app functionality intact.
-    - Notes: Keep Messenger updated manually if desired.
-<a id="instagram"></a>
+  - Default patched APK with behavior tweaks.
 - Instagram
-  - Features: default patched APK for Instagram
-  - Use:
-    - Usability: Maintains the normal Instagram experience (feed, stories, DMs); patches target performance/usability tweaks and removal of some annoyances without changing core social features.
-    - Notes: Some server-side features remain unaffected by APK patches.
+  - Usability and performance patches; core social features preserved.
 
-## Developers / Credits
+Contributing & credits
+- Maintainer: sabbirba (https://github.com/sabbirba10)
+- Upstream: j-hc and others
+- Contributions: open issues and PRs on GitHub. Follow repository coding guidelines and sign the contributor license if required.
 
-- [sabbirba](https://github.com/sabbirba10) — repository maintainer
-- j-hc — ReBuild upstream work
+Security & legal
+- ReBuild modifies distributed APKs. Ensure you have rights to install modified binaries on your devices.
+- Licensed under GPL-3.0 — see LICENSE for terms.
 
-## License
-
-This repository is licensed under the GNU General Public License v3.0 (GPL-3.0). See the LICENSE file for the full text or view it online: https://github.com/sabbirba/rebuild/blob/main/LICENSE
+License
+- GNU General Public License v3.0 — https://github.com/sabbirba/rebuild/blob/main/LICENSE
