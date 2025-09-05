@@ -87,6 +87,7 @@ See "Apps & Features" below for per-app features and example config.toml snippet
 
 This repository produces APK-only patched builds for the apps below. For each app: Features lists the patches / modifications applied; Use shows the minimal config.toml snippet to enable or configure that app.
 
+<a id="youtube"></a>
 - YouTube
   - Features: Default patches enabled (APK-only build)
   - Use:
@@ -99,6 +100,7 @@ This repository produces APK-only patched builds for the apps below. For each ap
     excluded-patches = ""
     ```
 
+<a id="music"></a>
 - Music (YouTube Music)
   - Features:
     - Hide category bar
@@ -110,6 +112,7 @@ This repository produces APK-only patched builds for the apps below. For each ap
     included-patches = "'Hide category bar'"
     ```
 
+<a id="spotify"></a>
 - Spotify
   - Features: standard patched APK (no special patches listed)
   - Use:
@@ -119,6 +122,7 @@ This repository produces APK-only patched builds for the apps below. For each ap
     arch = "arm64-v8a"
     ```
 
+<a id="googlephotos"></a>
 - Google Photos
   - Features:
     - com.google.android.apps.photos.nexus_preload
@@ -134,6 +138,7 @@ This repository produces APK-only patched builds for the apps below. For each ap
     included-patches = "'com.google.android.apps.photos.nexus_preload' 'com.google.android.apps.photos.NEXUS_PRELOAD' 'com.google.android.feature.PIXEL_2021_EXPERIENCE' 'com.google.android.feature.PIXEL_2022_EXPERIENCE'"
     ```
 
+<a id="facebook"></a>
 - Facebook
   - Features:
     - Disable auto-play videos
@@ -150,6 +155,7 @@ This repository produces APK-only patched builds for the apps below. For each ap
     included-patches = "'Disable auto-play videos' 'Disable in-app browser' 'Disable video looping' 'Disable video sound by default' 'Remove marketplace tab'"
     ```
 
+<a id="messenger"></a>
 - Messenger
   - Features: default patched APK for Messenger
   - Use:
@@ -160,6 +166,7 @@ This repository produces APK-only patched builds for the apps below. For each ap
     arch = "arm64-v8a"
     ```
 
+<a id="instagram"></a>
 - Instagram
   - Features: default patched APK for Instagram
   - Use:
