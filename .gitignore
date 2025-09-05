@@ -1,8 +1,1 @@
-*.apk
-*.zip
-/temp
-/build
-test*
-/logs
-build.md
-cmpr
+/.DS_Store

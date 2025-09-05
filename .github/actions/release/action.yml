@@ -1,0 +1,69 @@
+name: Releasing APK files
+inputs:
+  github_token:
+    description: 'GitHub token used to create release'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Generate release info
+      shell: bash
+      id: changelog
+      run: |
+        # Create changelog file by inspecting release artifacts
+        OUTFILE="$GITHUB_WORKSPACE-CHANGELOG.txt"
+        : > "$OUTFILE"
+
+        # Scan release APKs and try to extract a version number from the filename
+        for apk in "$GITHUB_WORKSPACE"/release/*.apk; do
+          [ -e "$apk" ] || continue
+          fname=$(basename "$apk")
+          # try to parse a semantic version like 1.2.3 or 1.2
+          if [[ $fname =~ ([0-9]+(\.[0-9]+)+) ]]; then
+            ver=${BASH_REMATCH[1]}
+          else
+            ver="unknown"
+          fi
+          label="$fname"
+          # map common filename tokens to friendly names
+          label=${label//youtube-music/Music}
+          label=${label//youtube/YouTube}
+          label=${label//gg-photos/GooglePhotos}
+          label=${label//facebook/Facebook}
+          label=${label//messenger/Messenger}
+          label=${label//spotify/Spotify}
+          # remove arch and suffix noise
+          pattern='-arm64-v8a|-armeabi-v7a|-x86(_64)?|-arm64|-revanced|-rebuild|-revanced$|-rebuild$|\\.apk'
+          label=$(echo "$label" | sed -E "s/$pattern//g")
+
+          # Only include when a version was actually detected
+          if [ "$ver" != "unknown" ]; then
+            echo "$label: $ver" >> "$OUTFILE"
+          fi
+        done
+
+        echo "" >> "$OUTFILE"
+        echo "First install [MicroG-RE](https://github.com/WSTxda/MicroG-RE/releases/download/5.12/microg-release.apk) if you haven't already for Google Photos, YouTube, and YouTube Music APKs. Maintained by [Sabbir Bin Abbas](https://facebook.com/Sabbirba10)." >> "$OUTFILE"
+
+        # Export changelog as a multi-line step output
+        echo "body<<EOF" >> "$GITHUB_OUTPUT"
+        cat "$OUTFILE" >> "$GITHUB_OUTPUT"
+        echo "EOF" >> "$GITHUB_OUTPUT"
+
+    - name: Set release date (UTC)
+      shell: bash
+      id: release_date
+      run: |
+        # Produce both machine-friendly (ISO) and human-friendly date strings
+        echo "date_iso=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+        echo "date_pretty=$(date -u +%d %B %Y)" >> "$GITHUB_OUTPUT"
+
+    - name: Create GitHub Release and upload assets
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.release_date.outputs.date_iso }}
+        name: ${{ steps.release_date.outputs.date_pretty }}
+        body: ${{ steps.changelog.outputs.body }}
+        files: ./release/*.apk
+      env:
+        GITHUB_TOKEN: ${{ inputs.github_token }}
