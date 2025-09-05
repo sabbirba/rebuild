@@ -134,8 +134,8 @@ This repository produces APK patched builds for the apps below. For each app: Fe
 
 ## Developers / Credits
 
-- [sabbirba](https://github.com/sabbirba) — repository maintainer
-- j-hc — upstream work
+- [Sabbir Bin Abbas](https://sabbirba.pages.dev) — repository maintainer
+- [Revanced](https://revanced.app) — patches maintainer
 
 ## License
 
