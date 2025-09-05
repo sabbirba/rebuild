@@ -22,13 +22,12 @@ build_youtube_music(){
 }
 
 build_spotjfy(){
-    revanced_dl
-    get_patches_key "spotjfy-revanced"
-    local j='i'
-    get_apkpure "com.spot${j}fy.music" "spotjfy-arm64-v8a" "spot${j}fy-music-and-podcasts-for-android/com.spot${j}fy.music"
-    patch "spotjfy-arm64-v8a" "revanced"
+	revanced_dl
+	get_patches_key "Spotjfy-revanced"
+	j="i"
+	get_apkpure "com.spot"$j"fy.music" "spotjfy-arm64-v8a" "spot"$j"fy-music-and-podcasts-for-android/com.spot"$j"fy.music"
+	patch "spotjfy-arm64-v8a" "revanced"
 }
-
 
 build_google_photos(){
     revanced_dl
@@ -55,7 +54,7 @@ build_messenger(){
 build_instagram(){
     revanced_dl
     get_patches_key "instagram"
-    get_apkpure "com.instagram.android" "instagram-arm64-v8a" "instagram-android/com.instagram.android" "Bundle"
+    get_apkpure "com.instagram.android" "instagram-arm64-v8a" "instagram-android/com.instagram.android" "Bundle_extract"
     patch "instagram-arm64-v8a" "revanced"
 }
 
