@@ -22,11 +22,11 @@ build_youtube_music(){
 }
 
 build_spotjfy(){
-	revanced_dl
-	get_patches_key "Spotjfy-revanced"
-	j="i"
-	get_apkpure "com.spot"$j"fy.music" "spotjfy-arm64-v8a" "spot"$j"fy-music-and-podcasts-for-android/com.spot"$j"fy.music"
-	patch "spotjfy-arm64-v8a" "revanced"
+    revanced_dl
+    get_patches_key "spotify-revanced"
+    j="i"
+    get_apkpure "com.spot"$j"fy.music" "spotjfy-arm64-v8a" "spot"$j"fy-music-and-podcasts-for-android/com.spot"$j"fy.music"
+    patch "spotjfy-arm64-v8a" "revanced"
 }
 
 build_google_photos(){
