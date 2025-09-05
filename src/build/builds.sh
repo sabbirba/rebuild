@@ -70,11 +70,9 @@ build_photomath(){
     revanced_dl
     get_patches_key "Photomath"
     get_apk "com.microblink.photomath" "photomath" "photomath" "google-inc/photomath/photomath" "Bundle"
-    split_editor "photomath" "photomath"
     patch "photomath" "revanced"
 }
 
-# Handle individual app builds
 case "${1:-all}" in
     Youtube)
         build_youtube
