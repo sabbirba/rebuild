@@ -85,42 +85,23 @@ See "Apps & Features" below for per-app features and example config.toml snippet
 
 # Apps & Features
 
-This repository produces APK-only patched builds for the apps below. For each app: Features lists the patches / modifications applied; Use shows the minimal config.toml snippet to enable or configure that app.
+This repository produces APK patched builds for the apps below. For each app: Features lists the patches / modifications applied;
 
 <a id="youtube"></a>
 - YouTube
   - Features: Default patches enabled (APK-only build)
   - Use:
-    ```toml
-    [YouTube]
-    build-mode = "apk"
-    version = "auto"
-    arch = "arm64-v8a"
-    included-patches = ""
-    excluded-patches = ""
-    ```
 
 <a id="music"></a>
 - Music (YouTube Music)
   - Features:
     - Hide category bar
   - Use:
-    ```toml
-    [Music]
-    version = "auto"
-    arch = "arm64-v8a"
-    included-patches = "'Hide category bar'"
-    ```
 
 <a id="spotify"></a>
 - Spotify
   - Features: standard patched APK (no special patches listed)
   - Use:
-    ```toml
-    [Spotify]
-    version = "auto"
-    arch = "arm64-v8a"
-    ```
 
 <a id="googlephotos"></a>
 - Google Photos
@@ -130,13 +111,6 @@ This repository produces APK-only patched builds for the apps below. For each ap
     - com.google.android.feature.PIXEL_2021_EXPERIENCE
     - com.google.android.feature.PIXEL_2022_EXPERIENCE
   - Use:
-    ```toml
-    [GooglePhotos]
-    build-mode = "apk"
-    version = "auto"
-    arch = "arm64-v8a"
-    included-patches = "'com.google.android.apps.photos.nexus_preload' 'com.google.android.apps.photos.NEXUS_PRELOAD' 'com.google.android.feature.PIXEL_2021_EXPERIENCE' 'com.google.android.feature.PIXEL_2022_EXPERIENCE'"
-    ```
 
 <a id="facebook"></a>
 - Facebook
@@ -147,34 +121,16 @@ This repository produces APK-only patched builds for the apps below. For each ap
     - Disable video sound by default
     - Remove marketplace tab
   - Use:
-    ```toml
-    [Facebook]
-    enabled = true
-    version = "auto"
-    arch = "arm64-v8a"
-    included-patches = "'Disable auto-play videos' 'Disable in-app browser' 'Disable video looping' 'Disable video sound by default' 'Remove marketplace tab'"
-    ```
 
 <a id="messenger"></a>
 - Messenger
   - Features: default patched APK for Messenger
   - Use:
-    ```toml
-    [Messenger]
-    enabled = true
-    version = "auto"
-    arch = "arm64-v8a"
-    ```
 
 <a id="instagram"></a>
 - Instagram
   - Features: default patched APK for Instagram
   - Use:
-    ```toml
-    [Instagram]
-    version = "auto"
-    arch = "arm64-v8a"
-    ```
 
 ## Developers / Credits
 
