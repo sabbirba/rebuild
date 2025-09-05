@@ -1,0 +1,11 @@
+name: CI (hourly)
+on:
+  schedule:
+    - cron: '0 14 * * *' # every day at 14:00 (UTC) BD time 20:00 (UTC+6) or 8:00 PM
+  workflow_dispatch:
+
+jobs:
+  trigger-build:
+    uses: ./.github/workflows/build.yml
+    with:
+      org: ReBuild
