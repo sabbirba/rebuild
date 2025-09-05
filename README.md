@@ -6,12 +6,6 @@
 
 Interactive README with quick visual cues, app icons and collapsible sections for easier browsing.
 
-<p align="center">
-  <img alt="ReBuild demo" src="https://raw.githubusercontent.com/sabbirba/rebuild/main/assets/screenshot-placeholder.png" width="720" />
-  <br>
-  <sub>Replace the above image at assets/screenshot-placeholder.png with a real screenshot (PNG recommended).</sub>
-</p>
-
 ## Quick links
 - Releases: https://github.com/sabbirba/rebuild/releases
 - License: GPL-3.0 — see LICENSE file
