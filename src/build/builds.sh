@@ -21,14 +21,6 @@ build_youtube_music(){
     patch "youtube-music-arm64-v8a" "revanced"
 }
 
-build_spotjfy(){
-    revanced_dl
-    get_patches_key "spotify-revanced"
-    j="i"
-    get_apkpure "com.spot"$j"fy.music" "spotjfy-arm64-v8a" "spot"$j"fy-music-and-podcasts-for-android/com.spot"$j"fy.music"
-    patch "spotjfy-arm64-v8a" "revanced"
-}
-
 build_google_photos(){
     revanced_dl
     get_patches_key "gg-photos"
@@ -62,7 +54,6 @@ build_instagram(){
 main(){
     build_youtube
     build_youtube_music
-    build_spotjfy
     build_google_photos
     build_facebook
     build_messenger
