@@ -22,9 +22,8 @@ runs:
         mkdir -p "$(dirname "$OUTFILE")"
         : > "$OUTFILE"
 
-        # define label from composite action input (provide fallback)
+        # define label from composite action input (no fallback)
         label="${{ inputs.app_name }}"
-        label="${label:-APK}"
 
         # clean label: remove trailing parenthesized notes and .apk, trim whitespace
         cleaned="$(printf '%s' "$label" | sed -E 's/\s*\([^)]*\)$//; s/\.apk$//I; s/^[[:space:]]+|[[:space:]]+$//g')"
