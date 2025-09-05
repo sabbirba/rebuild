@@ -71,7 +71,7 @@ runs:
 
           # map known apps to short canonical names
           case "$cleaned" in
-            *youtube-music*|*youtubemusic*) name="YouTube-Music" ;;
+            *youtube-music*|*youtubemusic*) name="YouTubeMusic" ;;
             *youtube*|*yt*) name="YouTube" ;;
             *messenger*|*fbmessenger*) name="Messenger" ;;
             *instagram*|*insta*) name="Instagram" ;;
