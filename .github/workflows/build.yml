@@ -73,7 +73,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: rebuild-${{ steps.release_date.outputs.date_iso }}
-          name: ReBuild ${{ steps.release_date.outputs.date_pretty }}
+          name: ${{ steps.release_date.outputs.date_pretty }}
           body: ${{ steps.changelog.outputs.body }}
           files: build/**
         env:
