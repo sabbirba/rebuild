@@ -5,8 +5,8 @@
 [![Platform](https://img.shields.io/badge/Platform-Android-3ddc84?style=flat-square&logo=android&logoColor=white)](#apps--features)
 
 ## Quick links
-- Releases: https://github.com/sabbirba/rebuild/releases
-- License: GPL-3.0 — see LICENSE file
+- [Releases](https://github.com/sabbirba/rebuild/releases)
+- [License: GPL-3.0](https://github.com/sabbirba/rebuild/blob/main/LICENSE)
 
 ## Supported apps (click to jump)
 <p>
