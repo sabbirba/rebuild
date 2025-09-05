@@ -14,7 +14,7 @@ on:
       org:
         description: 'Which ReBuild?'
         required: true
-        default: 'Stable'
+        default: 'ReBuild'
         type: choice
         options:
           - 'ReBuild'
@@ -25,9 +25,12 @@ on:
         type: string
 jobs:
   patch_rv:
-    name: ReBuild Stable
-    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'Stable' || inputs.org == 'Stable' }}
+    name: ReBuild ${{ matrix.run }}
+    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        run: [Youtube, Music, Photos, Facebook, Messenger, Instagram, Duolingo, GoogleNews, Photomath]
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
@@ -36,13 +39,14 @@ jobs:
       - name: Check github connection
         id: check-gh-rv
         run: bash src/etc/connection.sh
-      - name: Patch Apks
+      - name: Patch ${{ matrix.run }} APK
         id: patch-rv
         if: steps.check-gh-rv.outputs.internet_error == '0'
-        run: bash src/build/builds.sh
-      - name: Releasing APK files
+        run: bash src/build/builds.sh ${{ matrix.run }}
+      - name: Releasing ${{ matrix.run }} APK
         id: release-rv
         if: steps.check-gh-rv.outputs.internet_error == '0'
         uses: ./.github/actions/release
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          app_name: ${{ matrix.run }}

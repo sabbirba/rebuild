@@ -45,9 +45,9 @@ build_messenger(){
 
 build_instagram(){
     revanced_dl
-	get_patches_key "instagram"
- 	get_apkpure "com.instagram.android" "instagram-arm64-v8a" "instagram-android/com.instagram.android" "Bundle"
-	patch "instagram-arm64-v8a" "revanced"
+    get_patches_key "instagram"
+    get_apkpure "com.instagram.android" "instagram-arm64-v8a" "instagram-android/com.instagram.android" "Bundle"
+    patch "instagram-arm64-v8a" "revanced"
 }
 
 build_duolingo_googlenews(){
@@ -74,20 +74,44 @@ build_photomath(){
     patch "photomath" "revanced"
 }
 
-
-
-main(){
-    build_youtube
-    build_youtube_music
-    build_google_photos
-    build_facebook
-    build_messenger
-    build_instagram
-    build_duolingo_googlenews
-    build_googlenews
-    build_photomath
-}
-
-if [ "${BASH_SOURCE[0]}" == "$0" ]; then
-    main
-fi
+# Handle individual app builds
+case "${1:-all}" in
+    Youtube)
+        build_youtube
+        ;;
+    Music)
+        build_youtube_music
+        ;;
+    Photos)
+        build_google_photos
+        ;;
+    Facebook)
+        build_facebook
+        ;;
+    Messenger)
+        build_messenger
+        ;;
+    Instagram)
+        build_instagram
+        ;;
+    Duolingo)
+        build_duolingo_googlenews
+        ;;
+    GoogleNews)
+        build_googlenews
+        ;;
+    Photomath)
+        build_photomath
+        ;;
+    all|*)
+        build_youtube
+        build_youtube_music
+        build_google_photos
+        build_facebook
+        build_messenger
+        build_instagram
+        build_duolingo_googlenews
+        build_googlenews
+        build_photomath
+        ;;
+esac
