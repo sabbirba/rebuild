@@ -23,7 +23,7 @@ build_youtube_music(){
 
 build_spotjfy(){
     revanced_dl
-    get_patches_key "spotjfy-revanced"
+    get_patches_key "Spotjfy-revanced"
     local j='i'
     get_apkpure "com.spot${j}fy.music" "spotjfy-arm64-v8a" "spot${j}fy-music-and-podcasts-for-android/com.spot${j}fy.music"
     patch "spotjfy-arm64-v8a" "revanced"
