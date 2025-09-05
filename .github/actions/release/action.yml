@@ -37,15 +37,13 @@ runs:
         fi
 
         {
-          echo "$cleaned"
-          echo "Version: $version"
-          echo ""
           echo "First install [MicroG-RE](https://github.com/WSTxda/MicroG-RE/releases/download/5.12/microg-release.apk) if you haven't already for Google Photos, YouTube, and YouTube Music APKs. Maintained by [Sabbir Bin Abbas](https://facebook.com/Sabbirba10)."
         } >> "$OUTFILE"
 
         echo "body<<EOF" >> "$GITHUB_OUTPUT"
         cat "$OUTFILE" >> "$GITHUB_OUTPUT"
         echo "EOF" >> "$GITHUB_OUTPUT"
+        echo "version=$version" >> "$GITHUB_OUTPUT"
 
     - name: Set release date (UTC)
       shell: bash
@@ -57,7 +55,7 @@ runs:
     - name: Create GitHub Release and upload assets
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: ${{ steps.release_date.outputs.date_iso }}
+        tag_name: ${{ steps.changelog.outputs.version }}-${{ steps.release_date.outputs.date_iso }}
         name: ${{ steps.release_date.outputs.date_pretty }}
         body: ${{ steps.changelog.outputs.body }}
         files: ./release/*.apk
