@@ -6,7 +6,7 @@
 
 ## Quick links
 - [Releases](https://github.com/sabbirba/rebuild/releases) to downalod ReBuild APKs
-- [License: GPL-3.0](https://github.com/sabbirba/rebuild/blob/main/LICENSE)
+- Read License [GPL-3.0](https://github.com/sabbirba/rebuild/blob/main/LICENSE)
 
 ## Supported apps (click to jump)
 <p>
