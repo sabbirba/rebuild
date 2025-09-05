@@ -81,7 +81,7 @@ Supported apps (brief):
 - Messenger — patched Messenger APK.
 - Instagram — patched Instagram APK.
 
-See "Apps & Features" below for per-app features and example config.toml snippets.
+See "Apps & Features" below for per-app features.
 
 # Apps & Features
 
