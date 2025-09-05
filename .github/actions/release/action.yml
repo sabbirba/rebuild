@@ -9,7 +9,7 @@ inputs:
     required: false
     default: 'APK'
   version:
-    description: 'Version of the app'
+    description: 'Version of the app (fallback if not found in APK filename)'
     required: false
     default: 'latest'
 runs:
@@ -32,8 +32,21 @@ runs:
         # clean label: remove trailing parenthesized notes and .apk, trim whitespace
         cleaned="$(printf '%s' "$label" | sed -E 's/\s*\([^)]*\)$//; s/\.apk$//I; s/^[[:space:]]+|[[:space:]]+$//g')"
 
+        # extract version from first APK filename (e.g., youtube-rebuild-v1.1.1.1.apk -> v1.1.1.1)
+        apk_file=$(ls ./release/*.apk | head -1 || echo "")
+        if [[ -n "$apk_file" ]]; then
+          extracted_version=$(basename "$apk_file" | sed -E 's/.*-v([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)\.apk$/\1/' || echo "")
+          if [[ -n "$extracted_version" ]]; then
+            version="v$extracted_version"
+          else
+            version="${{ inputs.version }}"
+          fi
+        else
+          version="${{ inputs.version }}"
+        fi
+
         echo "$cleaned" >> "$OUTFILE"
-        echo "Version: ${{ inputs.version }}" >> "$OUTFILE"
+        echo "Version: $version" >> "$OUTFILE"
         echo "" >> "$OUTFILE"
         echo "First install [MicroG-RE](https://github.com/WSTxda/MicroG-RE/releases/download/5.12/microg-release.apk) if you haven't already for Google Photos, YouTube, and YouTube Music APKs. Maintained by [Sabbir Bin Abbas](https://facebook.com/Sabbirba10)." >> "$OUTFILE"
 
