@@ -44,7 +44,6 @@ enabled = true
 version = "auto"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/facebook/facebook/"
 uptodown-dlurl = "https://facebook.en.uptodown.com/android"
-archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.facebook.katana"
 arch = "arm64-v8a"
 included-patches = "'Disable auto-play videos' 'Disable in-app browser' 'Disable video looping' 'Disable video sound by default' 'Remove marketplace tab'"
 
