@@ -26,7 +26,8 @@ runs:
 
         {
             echo
-            echo "ReBuild APKs on $(date -u +'%Y-%m-%d %H:%M UTC')."
+            # human friendly date/time (e.g. "Friday 05 September 11:01 PM UTC")
+            echo "ReBuild YouTube, YouTube Music, Google Photos, Facebook, Messenger, Instagram, Duolingo, Google News, and Photomath APKs on $(date -u +'%A %d %B %I:%M %p UTC')."
             for apk in ./release/*"$cleaned"*.apk; do
                 if [ -f "$apk" ]; then
                     version_info=$(aapt dump badging "$apk" | awk -F"'" '/versionName=/{print $2}')
