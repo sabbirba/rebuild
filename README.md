@@ -147,4 +147,4 @@ This repository produces APK patched builds for the apps below. For each app: Fe
 
 ## License
 
-This repository is licensed under the GNU General Public License v3.0 (GPL-3.0). See the LICENSE file for the full text or view it online: https://github.com/sabbirba/rebuild/blob/main/LICENSE
+This repository is licensed under the GNU General Public License v3.0 (GPL-3.0). See the LICENSE file for the full text or view it online: https://github.com/sabbirba/rebuild?tab=GPL-3.0-1-ov-file
