@@ -71,23 +71,23 @@ runs:
 
           # map known apps to short canonical names
           case "$cleaned" in
-            *youtube-music*|*youtubemusic*) name="youtube-music" ;;
-            *youtube*|*yt*) name="youtube" ;;
-            *messenger*|*fbmessenger*) name="messenger" ;;
-            *instagram*|*insta*) name="instagram" ;;
-            *googlephotos*|*photos*|*gg-photos*) name="googlephotos" ;;
-            *photomath*|*photomath-revanced*) name="photomath" ;;
-            *facebook*|*fb*) name="facebook" ;;
-            *googlenews*|*news*) name="googlenews" ;;
-            *duolingo*) name="duolingo" ;;
+            *youtube-music*|*youtubemusic*) name="YouTube-Music" ;;
+            *youtube*|*yt*) name="YouTube" ;;
+            *messenger*|*fbmessenger*) name="Messenger" ;;
+            *instagram*|*insta*) name="Instagram" ;;
+            *googlephotos*|*photos*|*gg-photos*) name="Google-Photos" ;;
+            *photomath*|*photomath-revanced*) name="Photomath" ;;
+            *facebook*|*fb*) name="Facebook" ;;
+            *googlenews*|*news*) name="GoogleNews" ;;
+            *duolingo*) name="Duolingo" ;;
             *) name="$cleaned" ;;
           esac
 
-          # ensure single -rebuild suffix
-          if printf '%s' "$name" | grep -q -E '(-rebuild)$'; then
+          # ensure single -ReBuild suffix
+          if printf '%s' "$name" | grep -q -E '(-ReBuild)$'; then
             newname="${name}.apk"
           else
-            newname="${name}-rebuild.apk"
+            newname="${name}-ReBuild.apk"
           fi
 
           cp -f "$f" "$DST/$newname"
