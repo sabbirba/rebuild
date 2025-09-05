@@ -528,7 +528,7 @@ build_rv() {
 		return 0
 	fi
 
-	# User requested APK-only outputs: normalize all build modes to 'apk'
+	# User requested apk outputs: normalize all build modes to 'apk'
 	build_mode_arr=(apk)
 
 	pr "Choosing version '${version}' for ${table}"

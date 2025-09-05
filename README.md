@@ -70,10 +70,10 @@
 
 # About the apps
 
-This project produces APK-only patched builds for a set of popular Android apps. It downloads official APKs from the configured sources and applies binary patches to enable or disable features, backport device-specific flags, or remove undesired behavior. The repository does not redistribute app source code — it modifies released APKs.
+This project produces apk patched builds for a set of popular Android apps. It downloads official APKs from the configured sources and applies binary patches to enable or disable features, backport device-specific flags, or remove undesired behavior. The repository does not redistribute app source code — it modifies released APKs.
 
 Supported apps (brief):
-- YouTube — official Google YouTube app; Default patches enabled for APK-only builds.
+- YouTube — official Google YouTube app; Default patches enabled for apk builds.
 - Music (YouTube Music) — YouTube Music with optional UI tweaks (e.g., hide category bar).
 - Spotify — patched Spotify APK with basic modifications.
 - Google Photos — adds Pixel preload / Pixel experience flags via patches.

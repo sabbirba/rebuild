@@ -52,9 +52,9 @@ include-stock = true                                       # includes stock apk 
 exclusive-patches = false                                  # exclude all patches by default. default: false
 apkmirror-dlurl = "https://www.apkmirror.com/apk/inc/app"
 uptodown-dlurl = "https://spotify.en.uptodown.com/android"
-module-prop-name = "some-app-module"                       # module prop name (unused for APK-only builds)
+module-prop-name = "some-app-module"                       # module prop name (unused for apk builds)
 
-# Note: This repository has been configured for APK-only builds by default.
+# Note: This repository has been configured for apk builds by default.
 # module-specific fields (module-prop-name, enable-module-update, etc.) are
 # ignored when building APKs only.
 apkmirror-dpi = "360-480dpi"                               # used to select apk variant from apkmirror. default: nodpi
