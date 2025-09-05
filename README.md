@@ -12,7 +12,8 @@
 <p>
   <a href="#youtube"><img alt="YouTube" src="https://img.shields.io/badge/-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/></a>
   <a href="#music"><img alt="YouTube Music" src="https://img.shields.io/badge/-Music-FF0000?style=for-the-badge&logo=youtubemusic&logoColor=white"/></a>
-    <a href="#spotify"><img alt="Spotify" src="https://img.shields.io/badge/-Spotify-1DB954?style=for-the-badge&logo=spotify&logoColor=white"/></a>
+  <a href="#spotify"><img alt="Spotify" src="https://img.shields.io/badge/-Spotify-1DB954?style=for-the-badge&logo=spotify&logoColor=white"/></a>
+  <a href="#instagram"><img alt="Instagram" src="https://img.shields.io/badge/-Instagram-E1306C?style=for-the-badge&logo=instagram&logoColor=white"/></a>
   <a href="#googlephotos"><img alt="Google Photos" src="https://img.shields.io/badge/-Photos-4285F4?style=for-the-badge&logo=googlephotos&logoColor=white"/></a>
   <a href="#facebook"><img alt="Facebook" src="https://img.shields.io/badge/-Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"/></a>
   <a href="#messenger"><img alt="Messenger" src="https://img.shields.io/badge/-Messenger-0084FF?style=for-the-badge&logo=messenger&logoColor=white"/></a>
@@ -78,6 +79,7 @@ Supported apps (brief):
 - Facebook — patches to disable auto-play, in-app browser, video looping/sound, remove marketplace tab.
 - Messenger — patched Messenger APK.
 - Spotify — patched Spotify using the Spotjfy patchset
+- Instagram — patched Instagram APK using the instagram patchset (see src/patches/instagram)
 
 See "Apps & Features" below for per-app features.
 
@@ -132,6 +134,13 @@ This repository produces APK patched builds for the apps below. For each app: Fe
   - Use:
     - Usability: Preserves core messaging, calls, and notifications; patches focus on removing undesirable behaviors while keeping app functionality intact.
     - Notes: Keep Messenger updated manually if desired.
+<a id="instagram"></a>
+- Instagram
+  - Features:
+    - Default patched Instagram APK; patchset may include UI tweaks, ad/remove tweaks, and behavior adjustments depending on patchset version.
+  - Use:
+    - Usability: Preserves core Instagram features (feed, stories, reels, messaging). Patches are intended to alter UI/ads/behaviour without breaking core functionality.
+    - Notes: See src/patches/instagram for included patches and configuration. Play Store updates will replace patched APKs unless blocked.
 
 ## Developers / Credits
 

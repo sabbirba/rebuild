@@ -51,6 +51,13 @@ build_messenger(){
     patch "messenger-arm64-v8a" "revanced"
 }
 
+build_instagram(){
+    revanced_dl
+    get_patches_key "instagram"
+    get_apkpure "com.instagram.android" "instagram-arm64-v8a" "instagram-android/com.instagram.android" "Bundle"
+    patch "instagram-arm64-v8a" "revanced"
+}
+
 
 main(){
     build_youtube
@@ -59,6 +66,7 @@ main(){
     build_google_photos
     build_facebook
     build_messenger
+    build_instagram
 }
 
 if [ "${BASH_SOURCE[0]}" == "$0" ]; then
