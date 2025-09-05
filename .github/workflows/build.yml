@@ -24,7 +24,7 @@ on:
         required: true
         type: string
 jobs:
-  rebuild:
+  ReBuild:
     name: ${{ matrix.run }}
     if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
     runs-on: ubuntu-latest
@@ -52,7 +52,7 @@ jobs:
 
   release:
     name: Create Release
-    needs: rebuild
+    needs: ReBuild
     runs-on: ubuntu-latest
     if: always() && contains(needs.*.result, 'success')
     steps:
