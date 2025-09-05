@@ -89,20 +89,23 @@ This repository produces APK patched builds for the apps below. For each app: Fe
 
 <a id="youtube"></a>
 - YouTube
-  - Features: Default patches enabled (APK-only build)
+  - Features: Default patches enabled (APK build)
   - Use:
-
+    - Usability: UI and behavior remain the official app; patches tweak/enable flags and remove unwanted behaviors while preserving core playback, subscriptions, and recommendations.
+    - Notes: Play Store updates will replace the patched APK unless you block them.
 <a id="music"></a>
 - Music (YouTube Music)
   - Features:
     - Hide category bar
   - Use:
-
+    - Usability: Same playback and library features as the official app; optional UI tweaks (e.g., hiding the category bar) reduce clutter while keeping search, playlists, and playback intact.
+    - Notes: UI patches are cosmetic and reversible by installing the stock APK.
 <a id="spotify"></a>
 - Spotify
   - Features: standard patched APK (no special patches listed)
   - Use:
-
+    - Usability: Retains standard Spotify experience (playlists, search, offline if available for your account); patches aim for compatibility/behavior tweaks without altering account or subscription requirements.
+    - Notes: Do not expect subscription changes — patches do not enable paid features.
 <a id="googlephotos"></a>
 - Google Photos
   - Features:
@@ -111,7 +114,8 @@ This repository produces APK patched builds for the apps below. For each app: Fe
     - com.google.android.feature.PIXEL_2021_EXPERIENCE
     - com.google.android.feature.PIXEL_2022_EXPERIENCE
   - Use:
-
+    - Usability: Enables Pixel/preview features (preloads, experience flags) on non‑Pixel devices to mimic Pixel behavior; core gallery, backup, and editing functions remain unchanged.
+    - Notes: Some Pixel-only cloud features may still require Google account/device compatibility.
 <a id="facebook"></a>
 - Facebook
   - Features:
@@ -121,16 +125,20 @@ This repository produces APK patched builds for the apps below. For each app: Fe
     - Disable video sound by default
     - Remove marketplace tab
   - Use:
-
+    - Usability: Reduces distracting behaviors (autoplay, in-app browser) for a cleaner, less data-heavy experience while keeping news feed, messaging, and notifications functional.
+    - Notes: Some feature toggles may be visible in-app depending on Facebook's UI version.
 <a id="messenger"></a>
 - Messenger
   - Features: default patched APK for Messenger
   - Use:
-
+    - Usability: Preserves core messaging, calls, and notifications; patches focus on removing undesirable behaviors while keeping app functionality intact.
+    - Notes: Keep Messenger updated manually if desired.
 <a id="instagram"></a>
 - Instagram
   - Features: default patched APK for Instagram
   - Use:
+    - Usability: Maintains the normal Instagram experience (feed, stories, DMs); patches target performance/usability tweaks and removal of some annoyances without changing core social features.
+    - Notes: Some server-side features remain unaffected by APK patches.
 
 ## Developers / Credits
 
