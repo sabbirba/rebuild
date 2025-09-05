@@ -1,10 +1,15 @@
-name: Releasing APK files
+name: 'Release APK'
+description: 'Release the patched APK'
 inputs:
   github_token:
-    description: 'GitHub token used to create release'
+    description: 'GitHub token'
     required: true
+  app_name:
+    description: 'Name of the app being released'
+    required: false
+    default: 'APK'
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Generate release info
       shell: bash
@@ -35,11 +40,8 @@ runs:
           # remove arch and suffix noise
           pattern='-arm64-v8a|-armeabi-v7a|-x86(_64)?|-arm64|-revanced|-rebuild|-revanced$|-rebuild$|\\.apk'
           label=$(echo "$label" | sed -E "s/$pattern//g")
-
-          # Only include when a version was actually detected
-          if [ "$ver" != "unknown" ]; then
-            echo "$label: $ver" >> "$OUTFILE"
-          fi
+          
+          echo "• $label (v$ver)" >> "$OUTFILE"
         done
 
         echo "" >> "$OUTFILE"

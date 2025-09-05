@@ -25,7 +25,7 @@ on:
         type: string
 jobs:
   patch_rv:
-    name: ReBuild ${{ matrix.run }}
+    name: ${{ matrix.run }}
     if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
     runs-on: ubuntu-latest
     strategy:
@@ -43,10 +43,27 @@ jobs:
         id: patch-rv
         if: steps.check-gh-rv.outputs.internet_error == '0'
         run: bash src/build/builds.sh ${{ matrix.run }}
-      - name: Releasing ${{ matrix.run }} APK
-        id: release-rv
+      - name: Upload artifacts
         if: steps.check-gh-rv.outputs.internet_error == '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.run }}-apk
+          path: ./release/*.apk
+
+  release:
+    name: Create Release
+    needs: patch_rv
+    runs-on: ubuntu-latest
+    if: always() && contains(needs.*.result, 'success')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./release/
+          merge-multiple: true
+      - name: Release APKs
         uses: ./.github/actions/release
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          app_name: ${{ matrix.run }}
