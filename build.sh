@@ -168,7 +168,7 @@ wait
 rm -rf temp/tmp.*
 if [ -z "$(ls -A1 "${BUILD_DIR}")" ]; then abort "All builds failed."; fi
 
-log "\nFirst install [MicroG-RE](https://github.com/WSTxda/MicroG-RE/releases/download/5.12/microg-release.apk) for YouTube and Photos APKs"
+log "\nFirst install [MicroG-RE](https://github.com/WSTxda/MicroG-RE/releases/download/5.12/microg-release.apk) for YouTube, Music, and Google Photos APKs"
 log "Maintained by [Sabbir Bin Abbas](https://facebook.com/Sabbirba10)."
 
 SKIPPED=$(cat "$TEMP_DIR"/skipped 2>/dev/null || :)
