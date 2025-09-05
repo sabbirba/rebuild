@@ -25,6 +25,8 @@ runs:
         OUTFILE="${GITHUB_WORKSPACE:-.}/release/body.md"
         mkdir -p "$(dirname "$OUTFILE")"
         : > "$OUTFILE"
+
+        # define label from composite action input (no fallback)
         label="${{ inputs.app_name }}"
 
         # clean label: remove trailing parenthesized notes and .apk, trim whitespace
@@ -55,5 +57,6 @@ runs:
         name: ${{ steps.release_date.outputs.date_pretty }}
         body: ${{ steps.changelog.outputs.body }}
         files: ./release/*.apk
+        allowUpdates: true
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
