@@ -12,7 +12,6 @@ build_youtube(){
     get_apk "com.google.android.youtube" "youtube" "youtube" "google-inc/youtube/youtube" "Bundle_extract"
     split_editor "youtube" "youtube-arm64-v8a" "exclude" "split_config.armeabi_v7a split_config.x86 split_config.x86_64"
     patch "youtube-arm64-v8a" "revanced"
-    # version recording removed
 }
 
 build_youtube_music(){
@@ -20,7 +19,13 @@ build_youtube_music(){
     get_patches_key "youtube-music-revanced"
     get_apk "com.google.android.apps.youtube.music" "youtube-music-arm64-v8a" "youtube-music" "google-inc/youtube-music/youtube-music" "arm64-v8a"
     patch "youtube-music-arm64-v8a" "revanced"
-    # version recording removed
+}
+
+build_spotjfy(){
+    revanced_dl
+    get_patches_key "spotjfy_revanced"
+    get_apk "com.spotify.music" "spotjfy-arm64-v8a" "spotjfy" "spotify/spotify-android" "arm64-v8a" "nodpi"
+    patch "spotjfy-arm64-v8a" "revanced"
 }
 
 
@@ -29,7 +34,6 @@ build_google_photos(){
     get_patches_key "gg-photos"
     get_apk "com.google.android.apps.photos" "gg-photos-arm64-v8a" "photos" "google-inc/photos/google-photos" "arm64-v8a" "nodpi"
     patch "gg-photos-arm64-v8a" "revanced"
-    # version recording removed
 }
 
 build_facebook(){
@@ -37,7 +41,6 @@ build_facebook(){
     get_patches_key "facebook"
     get_apk "com.facebook.katana" "facebook-arm64-v8a" "facebook" "facebook-2/facebook/facebook" "arm64-v8a" "nodpi" "Android 11+"
     patch "facebook-arm64-v8a" "revanced"
-    # version recording removed
 }
 
 build_messenger(){
@@ -46,13 +49,13 @@ build_messenger(){
     lock_version="1"
     get_apk "com.facebook.orca" "messenger-arm64-v8a" "messenger" "facebook-2/messenger/facebook-messenger" "arm64-v8a" "nodpi"
     patch "messenger-arm64-v8a" "revanced"
-    # version recording removed
 }
 
 
 main(){
     build_youtube
     build_youtube_music
+    build_spotjfy
     build_google_photos
     build_facebook
     build_messenger

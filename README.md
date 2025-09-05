@@ -12,6 +12,7 @@
 <p>
   <a href="#youtube"><img alt="YouTube" src="https://img.shields.io/badge/-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/></a>
   <a href="#music"><img alt="YouTube Music" src="https://img.shields.io/badge/-Music-FF0000?style=for-the-badge&logo=youtubemusic&logoColor=white"/></a>
+    <a href="#spotify"><img alt="Spotify" src="https://img.shields.io/badge/-Spotify-1DB954?style=for-the-badge&logo=spotify&logoColor=white"/></a>
   <a href="#googlephotos"><img alt="Google Photos" src="https://img.shields.io/badge/-Photos-4285F4?style=for-the-badge&logo=googlephotos&logoColor=white"/></a>
   <a href="#facebook"><img alt="Facebook" src="https://img.shields.io/badge/-Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"/></a>
   <a href="#messenger"><img alt="Messenger" src="https://img.shields.io/badge/-Messenger-0084FF?style=for-the-badge&logo=messenger&logoColor=white"/></a>
@@ -76,6 +77,7 @@ Supported apps (brief):
 - Google Photos — adds Pixel preload / Pixel experience flags via patches.
 - Facebook — patches to disable auto-play, in-app browser, video looping/sound, remove marketplace tab.
 - Messenger — patched Messenger APK.
+- Spotify — patched Spotify using the Spotjfy patchset
 
 See "Apps & Features" below for per-app features.
 
@@ -96,7 +98,13 @@ This repository produces APK patched builds for the apps below. For each app: Fe
   - Use:
     - Usability: Same playback and library features as the official app; optional UI tweaks (e.g., hiding the category bar) reduce clutter while keeping search, playlists, and playback intact.
     - Notes: UI patches are cosmetic and reversible by installing the stock APK.
-...existing code...
+<a id="spotify"></a>
+- Spotify
+  - Features:
+    - Applies community Spotjfy patchset (see src/patches/Spotjfy-revanced) to adjust UI and behavior; exact patches vary with the patchset version.
+  - Use:
+    - Usability: Builds modify the official Spotify APK according to the selected Spotjfy patches. Core playback and account behavior are preserved where possible.
+    - Notes: See src/patches/Spotjfy-revanced for included patches and configuration. Play Store updates will replace patched APKs unless blocked.
 <a id="googlephotos"></a>
 - Google Photos
   - Features:
