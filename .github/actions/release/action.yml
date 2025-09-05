@@ -75,7 +75,7 @@ runs:
             *youtube*|*yt*) name="YouTube" ;;
             *messenger*|*fbmessenger*) name="Messenger" ;;
             *instagram*|*insta*) name="Instagram" ;;
-            *googlephotos*|*photos*|*gg-photos*) name="Google-Photos" ;;
+            *googlephotos*|*photos*|*gg-photos*) name="GooglePhotos" ;;
             *photomath*|*photomath-revanced*) name="Photomath" ;;
             *facebook*|*fb*) name="Facebook" ;;
             *googlenews*|*news*) name="GoogleNews" ;;
