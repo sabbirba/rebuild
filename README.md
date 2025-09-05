@@ -4,9 +4,9 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![Platform](https://img.shields.io/badge/Platform-Android-3ddc84?style=flat-square&logo=android&logoColor=white)](#apps--features)
 
-<div align="center">
-[Releases](https://github.com/sabbirba/rebuild/releases)
-Read License [GPL-3.0](https://github.com/sabbirba/rebuild/blob/main/LICENSE)
+## Quick links
+- [Releases](https://github.com/sabbirba/rebuild/releases) to downalod ReBuild APKs
+- Read License [GPL-3.0](https://github.com/sabbirba/rebuild/blob/main/LICENSE)
 
 ## Supported Apps
 <p>
@@ -21,7 +21,6 @@ Read License [GPL-3.0](https://github.com/sabbirba/rebuild/blob/main/LICENSE)
   <a href="#photomath"><img alt="Photomath" src="https://img.shields.io/badge/-Photomath-FF6B35?style=for-the-badge&logo=calculator&logoColor=white"/></a>
 </p>
 
-</div>
 <details>
 <summary><strong>Developer Installation / Quick start</strong></summary>
 
@@ -166,8 +165,6 @@ This repository produces APK patched builds for the apps below. For each app: Fe
 - [ReVanced](https://revanced.app) — patches maintainer
 - [Sabbir Bin Abbas](https://sabbirba.pages.dev) — repository maintainer
 
-<div align="center">
 ## License
 
 This repository is licensed under the [GNU General Public License v3.0 (GPL-3.0)](https://github.com/sabbirba/rebuild/blob/main/LICENSE).
-</div>
