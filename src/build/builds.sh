@@ -53,9 +53,9 @@ build_messenger(){
 
 build_instagram(){
     revanced_dl
-    get_patches_key "instagram"
-    get_apkpure "com.instagram.android" "instagram-arm64-v8a" "instagram-android/com.instagram.android" "Bundle_extract"
-    patch "instagram-arm64-v8a" "revanced"
+	get_patches_key "instagram"
+ 	get_apkpure "com.instagram.android" "instagram-arm64-v8a" "instagram-android/com.instagram.android" "Bundle"
+	patch "instagram-arm64-v8a" "revanced"
 }
 
 
