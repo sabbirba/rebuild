@@ -7,7 +7,9 @@
 ## Quick links
 - [Releases](https://github.com/sabbirba/rebuild/releases) to downalod ReBuild APKs
 - Read License [GPL-3.0](https://github.com/sabbirba/rebuild/blob/main/LICENSE)
+
 <div align="center">
+
 ## Supported Apps
 <p>
   <a href="#youtube"><img alt="YouTube" src="https://img.shields.io/badge/-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/></a>
@@ -16,7 +18,11 @@
   <a href="#facebook"><img alt="Facebook" src="https://img.shields.io/badge/-Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"/></a>
   <a href="#messenger"><img alt="Messenger" src="https://img.shields.io/badge/-Messenger-0084FF?style=for-the-badge&logo=messenger&logoColor=white"/></a>
   <a href="#instagram"><img alt="Instagram" src="https://img.shields.io/badge/-Instagram-E1306C?style=for-the-badge&logo=instagram&logoColor=white"/></a>
+  <a href="#duolingo"><img alt="Duolingo" src="https://img.shields.io/badge/-Duolingo-58CC02?style=for-the-badge&logo=duolingo&logoColor=white"/></a>
+  <a href="#googlenews"><img alt="Google News" src="https://img.shields.io/badge/-Google%20News-4285F4?style=for-the-badge&logo=googlenews&logoColor=white"/></a>
+  <a href="#photomath"><img alt="Photomath" src="https://img.shields.io/badge/-Photomath-FF6B35?style=for-the-badge&logo=calculator&logoColor=white"/></a>
 </p>
+
 </div>
 <details>
 <summary><strong>Developer Installation / Quick start</strong></summary>
@@ -78,6 +84,9 @@ Supported apps (brief):
 - Facebook — patches to disable auto-play, in-app browser, video looping/sound, remove marketplace tab.
 - Messenger — patched Messenger APK.
 - Instagram — patched Instagram APK using the instagram patchset (see src/patches/instagram)
+- Duolingo — patched Duolingo APK with enhanced features.
+- Google News — patched Google News APK with UI and functionality improvements.
+- Photomath — patched Photomath APK with premium features.
 
 See "Apps & Features" below for per-app features.
 
@@ -132,6 +141,27 @@ This repository produces APK patched builds for the apps below. For each app: Fe
   - Use:
     - Usability: Preserves core Instagram features (feed, stories, reels, messaging). Patches are intended to alter UI/ads/behaviour without breaking core functionality.
     - Notes: See src/patches/instagram for included patches and configuration. Play Store updates will replace patched APKs unless blocked.
+
+<a id="duolingo"></a>
+- Duolingo
+  - Features: Default patched Duolingo APK with enhanced learning features
+  - Use:
+    - Usability: Preserves core language learning functionality while potentially adding premium features or removing restrictions.
+    - Notes: Patches may include unlocked premium content or ad removal.
+
+<a id="googlenews"></a>
+- Google News
+  - Features: Default patched Google News APK with improved user experience
+  - Use:
+    - Usability: Maintains news aggregation and reading features with potential UI improvements and enhanced functionality.
+    - Notes: Patches focus on improving user experience without breaking core news functionality.
+
+<a id="photomath"></a>
+- Photomath
+  - Features: Default patched Photomath APK with enhanced math solving capabilities
+  - Use:
+    - Usability: Preserves camera-based math problem solving with potential premium feature unlocks.
+    - Notes: May include access to step-by-step solutions and advanced mathematical features.
 
 ## Developers / Credits
 

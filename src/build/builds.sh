@@ -50,6 +50,31 @@ build_instagram(){
 	patch "instagram-arm64-v8a" "revanced"
 }
 
+build_duolingo_googlenews(){
+    revanced_dl
+    get_patches_key "Duolingo"
+    lock_version="1"
+    get_apk "com.duolingo" "duolingo" "duolingo-duolingo" "duolingo/duolingo-duolingo/duolingo-language-lessons" "Bundle"
+    patch "duolingo" "revanced"
+}
+
+build_googlenews(){
+    revanced_dl
+    get_patches_key "GoogleNews"
+    get_apk "com.google.android.apps.magazines" "googlenews" "google-news" "google-inc/google-news/google-news" "Bundle_extract"
+    split_editor "googlenews" "googlenews-arm64-v8a" "exclude" "split_config.armeabi_v7a split_config.x86 split_config.x86_64"
+    patch "googlenews-arm64-v8a" "revanced"
+}
+
+build_photomath(){
+    revanced_dl
+    get_patches_key "Photomath"
+    get_apk "com.microblink.photomath" "photomath" "photomath" "google-inc/photomath/photomath" "Bundle" "Bundle_extract"
+    split_editor "photomath" "photomath"
+    patch "photomath" "revanced"
+}
+
+
 
 main(){
     build_youtube
@@ -58,6 +83,9 @@ main(){
     build_facebook
     build_messenger
     build_instagram
+    build_duolingo_googlenews
+    build_googlenews
+    build_photomath
 }
 
 if [ "${BASH_SOURCE[0]}" == "$0" ]; then
