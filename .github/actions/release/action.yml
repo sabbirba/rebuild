@@ -48,13 +48,38 @@ runs:
         echo "date_iso=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
         echo "date_pretty=$(date -u +%d %B %Y)" >> "$GITHUB_OUTPUT"
 
+    - name: Prepare APK filenames (clean app names)
+      shell: bash
+      run: |
+        set -euo pipefail
+        SRC="./release"
+        DST="./release_renamed"
+        rm -rf "$DST"
+        mkdir -p "$DST"
+
+        for f in "$SRC"/*.apk; do
+          [ -e "$f" ] || continue
+          base="$(basename "$f" .apk)"
+
+          # remove common CPU/ABI suffixes
+          base="$(echo "$base" | sed -E 's/(-arm64-v8a|-arm64-v7a|-arm64|-armeabi-v7a|-v8a|-arm|-x86_64|-x86)//g')"
+
+          # remove "revanced" and similar modifiers
+          base="$(echo "$base" | sed -E 's/(-revanced|-revance|-rev|_revanced)$//g')"
+
+          # trim trailing/double hyphens
+          base="$(echo "$base" | sed -E 's/--+/-/g; s/-$//')"
+
+          newname="${base}-rebuild.apk"
+          cp -f "$f" "$DST/$newname"
+        done
+
     - name: Create GitHub Release and upload assets
       uses: softprops/action-gh-release@v1
       with:
         tag_name: ${{ steps.release_date.outputs.date_iso }}
         name: ${{ steps.release_date.outputs.date_pretty }}
         body: ${{ steps.changelog.outputs.body }}
-        files: ./release/*.apk
-        allowUpdates: true
+        files: ./release_renamed/*.apk
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
