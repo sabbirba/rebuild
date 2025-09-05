@@ -16,7 +16,6 @@
   <a href="#googlephotos"><img alt="Google Photos" src="https://img.shields.io/badge/-Photos-4285F4?style=for-the-badge&logo=googlephotos&logoColor=white"/></a>
   <a href="#facebook"><img alt="Facebook" src="https://img.shields.io/badge/-Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"/></a>
   <a href="#messenger"><img alt="Messenger" src="https://img.shields.io/badge/-Messenger-0084FF?style=for-the-badge&logo=facebook-messenger&logoColor=white"/></a>
-  <a href="#instagram"><img alt="Instagram" src="https://img.shields.io/badge/-Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/></a>
 </p>
 
 <details>
@@ -79,7 +78,6 @@ Supported apps (brief):
 - Google Photos — adds Pixel preload / Pixel experience flags via patches.
 - Facebook — patches to disable auto-play, in-app browser, video looping/sound, remove marketplace tab.
 - Messenger — patched Messenger APK.
-- Instagram — patched Instagram APK.
 
 See "Apps & Features" below for per-app features.
 
@@ -133,13 +131,7 @@ This repository produces APK patched builds for the apps below. For each app: Fe
   - Use:
     - Usability: Preserves core messaging, calls, and notifications; patches focus on removing undesirable behaviors while keeping app functionality intact.
     - Notes: Keep Messenger updated manually if desired.
-<a id="instagram"></a>
-- Instagram
-  - Features: default patched APK for Instagram
-  - Use:
-    - Usability: Maintains the normal Instagram experience (feed, stories, DMs); patches target performance/usability tweaks and removal of some annoyances without changing core social features.
-    - Notes: Some server-side features remain unaffected by APK patches.
-
+    
 ## Developers / Credits
 
 - [sabbirba](https://github.com/sabbirba10) — repository maintainer
