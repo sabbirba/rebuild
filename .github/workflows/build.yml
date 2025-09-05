@@ -65,14 +65,15 @@ jobs:
       - name: Set release date (UTC)
         id: release_date
         run: |
-          # Produce a stable YYYY-MM-DD date string for the release tag/name
-          echo "date=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+          # Produce both machine-friendly (ISO) and human-friendly date strings
+          echo "date_iso=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+          echo "date_pretty=$(date -u +%d\ %B\ %Y)" >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub Release and upload assets
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: rebuild-${{ steps.release_date.outputs.date }}
-          name: ReBuild ${{ steps.release_date.outputs.date }}
+          tag_name: rebuild-${{ steps.release_date.outputs.date_iso }}
+          name: ReBuild ${{ steps.release_date.outputs.date_pretty }}
           body: ${{ steps.changelog.outputs.body }}
           files: build/**
         env:
