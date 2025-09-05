@@ -55,13 +55,6 @@ jobs:
             echo "body=Build artifacts" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Remove zip and tar.gz from release assets
-        run: |
-          # Prevent uploading generated source archives to the GitHub Release
-          if [ -d build ]; then
-            find build -type f \( -name '*.zip' -o -name '*.tar.gz' \) -print -delete || true
-          fi
-
       - name: Set release date (UTC)
         id: release_date
         run: |
