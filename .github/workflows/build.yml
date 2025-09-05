@@ -47,7 +47,7 @@ jobs:
         if: steps.check-gh-rv.outputs.internet_error == '0'
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.run }}-apk
+          name: ${{ matrix.run }}
           path: ./release/*.apk
 
   release:
