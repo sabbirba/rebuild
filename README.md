@@ -4,8 +4,6 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![Platform](https://img.shields.io/badge/Platform-Android-3ddc84?style=flat-square&logo=android&logoColor=white)](#apps--features)
 
-Interactive README with quick visual cues, app icons and collapsible sections for easier browsing.
-
 ## Quick links
 - Releases: https://github.com/sabbirba/rebuild/releases
 - License: GPL-3.0 — see LICENSE file
