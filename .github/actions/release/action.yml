@@ -12,6 +12,10 @@ inputs:
     description: 'Version of the app (fallback if not found in APK filename)'
     required: false
     default: 'latest'
+outputs:
+  version:
+    description: "Resolved APK version"
+    value: ${{ steps.changelog.outputs.version }}
 runs:
   using: 'composite'
   steps:
@@ -28,9 +32,9 @@ runs:
         label="${{ inputs.app_name }}"
         cleaned="$(printf '%s' "$label" | sed -E 's/\s*\([^)]*\)$//; s/\.apk$//I; s/^[[:space:]]+|[[:space:]]+$//g')"
 
-        apk_file=$(ls ./release/*.apk | head -1 || echo "")
+        apk_file=$(ls ./release/*.apk 2>/dev/null | head -1 || echo "")
         if [[ -n "$apk_file" ]]; then
-          extracted_version=$(basename "$apk_file" | sed -E 's/.*-v([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)\.apk$/\1/' || echo "")
+          extracted_version=$(basename "$apk_file" | sed -E 's/.*-v([0-9]+(\.[0-9]+)*([0-9])?)\.apk$/\1/' || echo "")
           [[ -n "$extracted_version" ]] && version="v$extracted_version" || version="${{ inputs.version }}"
         else
           version="${{ inputs.version }}"
@@ -39,6 +43,21 @@ runs:
         {
           echo "First install [MicroG-RE](https://github.com/WSTxda/MicroG-RE/releases/download/5.12/microg-release.apk) if you haven't already for Google Photos, YouTube, and YouTube Music APKs. Maintained by [Sabbir Bin Abbas](https://facebook.com/Sabbirba10)."
         } >> "$OUTFILE"
+
+        # prepare release_final with version in apk filenames (only APKs are renamed)
+        RELEASE_FINAL="${GITHUB_WORKSPACE:-.}/release_final"
+        rm -rf "$RELEASE_FINAL"
+        mkdir -p "$RELEASE_FINAL"
+        for f in ./release/*.apk; do
+          [ -e "$f" ] || continue
+          base="$(basename "$f" .apk)"
+          # if base already contains a version-like -v or the chosen version string, keep original name
+          if echo "$base" | grep -E -q "-v[0-9]+" || echo "$base" | grep -F -q "$version"; then
+            cp -f "$f" "$RELEASE_FINAL/${base}.apk"
+          else
+            cp -f "$f" "$RELEASE_FINAL/${base}-${version}.apk"
+          fi
+        done
 
         echo "body<<EOF" >> "$GITHUB_OUTPUT"
         cat "$OUTFILE" >> "$GITHUB_OUTPUT"
@@ -58,7 +77,7 @@ runs:
         tag_name: ${{ steps.release_date.outputs.date_iso }}
         name: ${{ steps.release_date.outputs.date_pretty }}
         body: ${{ steps.changelog.outputs.body }}
-        files: ./release/*.apk
+        files: ./release_final/*.apk
         allowUpdates: true
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
