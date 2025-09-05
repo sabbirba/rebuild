@@ -21,13 +21,8 @@ Interactive README with quick visual cues, app icons and collapsible sections fo
   <a href="#instagram"><img alt="Instagram" src="https://img.shields.io/badge/-Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/></a>
 </p>
 
-## How this README is interactive
-- Badges act as visual icons and quick links.
-- Collapsible sections (details/summary) make navigation compact.
-- Replace the placeholder image in assets/ to show screenshots.
-
 <details>
-<summary><strong>Installation / Quick start</strong></summary>
+<summary><strong>Developer Installation / Quick start</strong></summary>
 
 1. Clone the repo:
    ```bash
