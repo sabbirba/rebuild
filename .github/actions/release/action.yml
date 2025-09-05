@@ -21,7 +21,14 @@ runs:
         OUTFILE="${GITHUB_WORKSPACE:-.}/release/body.md"
         mkdir -p "$(dirname "$OUTFILE")"
         : > "$OUTFILE"
-        echo "${{ inputs.app_name }}" >> "$OUTFILE"
+
+        # define label from composite action input (provide fallback)
+        label="${{ inputs.app_name }}"
+        label="${label:-APK}"
+
+        # clean label: remove trailing parenthesized notes and .apk, trim whitespace
+        cleaned="$(printf '%s' "$label" | sed -E 's/\s*\([^)]*\)$//; s/\.apk$//I; s/^[[:space:]]+|[[:space:]]+$//g')"
+
         echo "$cleaned" >> "$OUTFILE"
         echo "" >> "$OUTFILE"
         echo "First install [MicroG-RE](https://github.com/WSTxda/MicroG-RE/releases/download/5.12/microg-release.apk) if you haven't already for Google Photos, YouTube, and YouTube Music APKs. Maintained by [Sabbir Bin Abbas](https://facebook.com/Sabbirba10)." >> "$OUTFILE"
