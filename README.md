@@ -1,6 +1,85 @@
 # ReBuild
 
-Get the [latest APK releases](https://github.com/sabbirba/rebuild/releases).
+[![Release](https://img.shields.io/github/v/release/sabbirba/rebuild?style=flat-square)](https://github.com/sabbirba/rebuild/releases)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![Platform](https://img.shields.io/badge/Platform-Android-3ddc84?style=flat-square&logo=android&logoColor=white)](#apps--features)
+
+Interactive README with quick visual cues, app icons and collapsible sections for easier browsing.
+
+<p align="center">
+  <img alt="ReBuild demo" src="https://raw.githubusercontent.com/sabbirba/rebuild/main/assets/screenshot-placeholder.png" width="720" />
+  <br>
+  <sub>Replace the above image at assets/screenshot-placeholder.png with a real screenshot (PNG recommended).</sub>
+</p>
+
+## Quick links
+- Releases: https://github.com/sabbirba/rebuild/releases
+- License: GPL-3.0 — see LICENSE file
+
+## Supported apps (click to jump)
+<p>
+  <a href="#youtube"><img alt="YouTube" src="https://img.shields.io/badge/-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/></a>
+  <a href="#music"><img alt="YouTube Music" src="https://img.shields.io/badge/-Music-FF0000?style=for-the-badge&logo=youtubemusic&logoColor=white"/></a>
+  <a href="#spotify"><img alt="Spotify" src="https://img.shields.io/badge/-Spotify-1DB954?style=for-the-badge&logo=spotify&logoColor=white"/></a>
+  <a href="#googlephotos"><img alt="Google Photos" src="https://img.shields.io/badge/-Photos-4285F4?style=for-the-badge&logo=googlephotos&logoColor=white"/></a>
+  <a href="#facebook"><img alt="Facebook" src="https://img.shields.io/badge/-Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"/></a>
+  <a href="#messenger"><img alt="Messenger" src="https://img.shields.io/badge/-Messenger-0084FF?style=for-the-badge&logo=facebook-messenger&logoColor=white"/></a>
+  <a href="#instagram"><img alt="Instagram" src="https://img.shields.io/badge/-Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/></a>
+</p>
+
+## How this README is interactive
+- Badges act as visual icons and quick links.
+- Collapsible sections (details/summary) make navigation compact.
+- Replace the placeholder image in assets/ to show screenshots.
+
+<details>
+<summary><strong>Installation / Quick start</strong></summary>
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/sabbirba/rebuild.git
+   cd rebuild
+   ```
+
+2. Install [Ninja](https://ninja-build.org/) (if not already installed):
+   - Using package manager (e.g., `apt`, `brew`, `choco`):
+     ```bash
+     # Example for Ubuntu
+     sudo apt install ninja-build
+     ```
+   - Or download from the [Ninja releases page](https://github.com/ninja-build/ninja/releases).
+
+3. Install [Rust](https://www.rust-lang.org/tools/install) (if not already installed):
+   ```bash
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   ```
+
+4. Install [Android SDK Command-line Tools](https://developer.android.com/studio#command-tools) (if not already installed):
+   - Download the Command-line Tools only option.
+   - Extract and set up in `ANDROID_SDK_ROOT` (e.g., `~/Android/Sdk`).
+
+5. Install required Android SDK packages:
+   ```bash
+   sdkmanager "platform-tools" "platforms;android-30" "build-tools;30.0.3"
+   ```
+
+6. Install [Git](https://git-scm.com/downloads) (if not already installed):
+   - Download and install from the official website.
+
+7. Install [Python 3](https://www.python.org/downloads/) (if not already installed):
+   - Download and install from the official website.
+
+8. Install [Docker](https://www.docker.com/get-started) (if not already installed):
+   - Follow the official installation guide for your platform.
+
+9. Build the project:
+   ```bash
+   ./build.sh
+   ```
+
+10. Find the built APKs in the `output/` directory.
+
+</details>
 
 # About the apps
 
@@ -105,7 +184,7 @@ This repository produces APK-only patched builds for the apps below. For each ap
 
 ## Developers / Credits
 
-- [sabbirba10](https://github.com/sabbirba10) — repository maintainer
+- [sabbirba](https://github.com/sabbirba10) — repository maintainer
 - j-hc — original ReBuild project and upstream work
 
 ## License
