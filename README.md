@@ -1,4 +1,3 @@
-<div align="center">
 # ReBuild APKs
 
 [![Release](https://img.shields.io/github/v/release/sabbirba/rebuild?style=flat-square)](https://github.com/sabbirba/rebuild/releases)
@@ -8,7 +7,7 @@
 ## Quick links
 - [Releases](https://github.com/sabbirba/rebuild/releases) to downalod ReBuild APKs
 - Read License [GPL-3.0](https://github.com/sabbirba/rebuild/blob/main/LICENSE)
-
+<div align="center">
 ## Supported Apps
 <p>
   <a href="#youtube"><img alt="YouTube" src="https://img.shields.io/badge/-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/></a>
@@ -18,7 +17,7 @@
   <a href="#messenger"><img alt="Messenger" src="https://img.shields.io/badge/-Messenger-0084FF?style=for-the-badge&logo=messenger&logoColor=white"/></a>
   <a href="#instagram"><img alt="Instagram" src="https://img.shields.io/badge/-Instagram-E1306C?style=for-the-badge&logo=instagram&logoColor=white"/></a>
 </p>
-
+</div>
 <details>
 <summary><strong>Developer Installation / Quick start</strong></summary>
 
@@ -139,8 +138,8 @@ This repository produces APK patched builds for the apps below. For each app: Fe
 - [ReVanced](https://revanced.app) — patches maintainer
 - [Sabbir Bin Abbas](https://sabbirba.pages.dev) — repository maintainer
 
+<div align="center">
 ## License
 
 This repository is licensed under the [GNU General Public License v3.0 (GPL-3.0)](https://github.com/sabbirba/rebuild/blob/main/LICENSE).
-
 </div>
