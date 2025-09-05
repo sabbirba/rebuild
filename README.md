@@ -183,4 +183,4 @@ This repository produces APK-only patched builds for the apps below. For each ap
 
 ## License
 
-This repository is licensed under the GNU General Public License v3.0 (GPL-3.0). See the LICENSE file for the full text or view it online: https://www.gnu.org/licenses/gpl-3.0.en.html
+This repository is licensed under the GNU General Public License v3.0 (GPL-3.0). See the LICENSE file for the full text or view it online: https://github.com/sabbirba/rebuild/blob/main/LICENSE
