@@ -2,6 +2,67 @@
 
 Get the [latest APKs release](https://github.com/sabbirba/rebuild/releases).
 
+
+# Apps & Features
+
+This repository produces APK-only patched builds for the following apps.
+
+- YouTube
+  - build-mode: apk
+  - version: auto
+  - arch: arm64-v8a
+  - download: apkmirror / uptodown / archive
+  - included patches: none specified
+  - excluded patches: none specified
+
+- Music (YouTube Music)
+  - version: auto
+  - arch: arm64-v8a
+  - download: apkmirror / uptodown / archive
+  - included patches: "Hide category bar"
+
+- Spotify
+  - enabled: (default)
+  - download: uptodown / archive
+
+- GooglePhotos
+  - build-mode: apk
+  - version: auto
+  - arch: arm64-v8a
+  - download: apkmirror / uptodown
+  - included features/patches:
+    - com.google.android.apps.photos.nexus_preload
+    - com.google.android.apps.photos.NEXUS_PRELOAD
+    - com.google.android.feature.PIXEL_2021_EXPERIENCE
+    - com.google.android.feature.PIXEL_2022_EXPERIENCE
+
+- Facebook
+  - enabled: true
+  - version: auto
+  - arch: arm64-v8a
+  - download: apkmirror
+  - included patches/features:
+    - Disable auto-play videos
+    - Disable in-app browser
+    - Disable video looping
+    - Disable video sound by default
+    - Remove marketplace tab
+
+- Messenger
+  - enabled: true
+  - version: auto
+  - arch: arm64-v8a
+  - download: apkmirror
+
+- Instagram
+  - version: auto
+  - arch: arm64-v8a
+  - download: apkmirror
+
+Notes:
+- The exact downloads and patches come from `config.toml`. Some entries may contain multiple download URLs; the active value is the last one defined.
+- For full build
+
 ## To include/exclude patches or patch other apps
 
  * Customize [`config.toml`](./config.toml) using [rvmm-config-gen](https://j-hc.github.io/rvmm-config-gen/)
