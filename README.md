@@ -179,7 +179,7 @@ This repository produces APK-only patched builds for the apps below. For each ap
 ## Developers / Credits
 
 - [sabbirba](https://github.com/sabbirba10) — repository maintainer
-- j-hc — original ReBuild project and upstream work
+- j-hc — ReBuild upstream work
 
 ## License
 
