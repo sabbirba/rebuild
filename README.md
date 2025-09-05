@@ -12,8 +12,8 @@ This repository produces APK-only patched builds for the following apps.
   - version: auto
   - arch: arm64-v8a
   - download: apkmirror / uptodown / archive
-  - included patches: none specified
-  - excluded patches: none specified
+  - included patches: auto
+  - excluded patches: none
 
 - Music (YouTube Music)
   - version: auto
