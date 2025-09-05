@@ -33,7 +33,6 @@ archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.spotify.music"
 [GooglePhotos]
 version = "auto"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
-uptodown-dlurl = "https://google-photos.en.uptodown.com/android"
 uptodown-dlurl = "https://bracuexam.lamppost.org.bd/photos.apk"
 build-mode = "apk"
 included-patches = "'com.google.android.apps.photos.nexus_preload' 'com.google.android.apps.photos.NEXUS_PRELOAD' 'com.google.android.feature.PIXEL_2021_EXPERIENCE' 'com.google.android.feature.PIXEL_2022_EXPERIENCE'"
