@@ -39,8 +39,8 @@ jobs:
       - name: Check github connection
         id: check-gh-rv
         run: bash src/etc/connection.sh
-      - name: Patch ${{ matrix.run }} APK
-        id: patch-rv
+      - name: ReBuild ${{ matrix.run }} APK
+        id: rebuild
         if: steps.check-gh-rv.outputs.internet_error == '0'
         run: bash src/build/builds.sh ${{ matrix.run }}
       - name: Upload artifacts
