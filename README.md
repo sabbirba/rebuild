@@ -70,7 +70,7 @@
 
 # About the apps
 
-This project produces apk patched builds for a set of popular Android apps. It downloads official APKs from the configured sources and applies binary patches to enable or disable features, backport device-specific flags, or remove undesired behavior. The repository does not redistribute app source code — it modifies released APKs.
+This project produces apk patched builds for a set of popular Android apps. It downloads latest version of official APKs from the configured sources and applies binary patches to enable or disable features, backport device-specific flags, or remove undesired behavior. The repository does not redistribute app source code — it modifies released APKs.
 
 Supported apps (brief):
 - YouTube — official Google YouTube app; Default patches enabled for apk builds.
