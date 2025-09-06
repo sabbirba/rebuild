@@ -1,7 +1,7 @@
 name: CI
 on:
   schedule:
-    - cron: '*/5 * * * *' # every 5 minutes (UTC)
+    - cron: '*/05 * * * *' # every 5 minutes (UTC)
   workflow_dispatch:
 permissions: write-all
 
