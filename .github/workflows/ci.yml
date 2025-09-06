@@ -3,9 +3,11 @@ on:
   schedule:
     - cron: '*/10 * * * *' # every 10 minutes (UTC)
   workflow_dispatch:
+permissions: write-all
 
 jobs:
   trigger-build:
-    uses: ./.github/workflows/build.yml
+    uses: sabbirba/rebuild/.github/workflows/build.yml@main
     with:
       org: ReBuild
+    secrets: inherit
