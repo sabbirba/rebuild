@@ -1,7 +1,7 @@
-name: CI (daily build)
+name: CI (every 10 minutes)
 on:
   schedule:
-    - cron: '0 14 * * *' # every day at 14:00 (UTC) BD time 20:00 (UTC+6) or 8:00 PM
+    - cron: '*/10 * * * *' # every 10 minutes (UTC)
   workflow_dispatch:
 
 jobs:
