@@ -27,7 +27,7 @@ runs:
         {
             echo
             # human friendly date/time (e.g. "Friday 05 September 11:01 PM UTC")
-            echo "ReBuild YouTube, YouTube Music, Google Photos, Google News, Facebook, Messenger, Instagram, and Photomath APKs on $(date -u +'%A %d %B %I:%M %p UTC')."
+            echo "ReBuild APKs for YouTube, YouTube Music, Google Photos, Google News, Photomath, Facebook, Messenger, and Instagram on $(date -u +'%A %d %B %I:%M %p UTC')."
             for apk in ./release/*"$cleaned"*.apk; do
                 if [ -f "$apk" ]; then
                     version_info=$(aapt dump badging "$apk" | awk -F"'" '/versionName=/{print $2}')
@@ -82,11 +82,11 @@ runs:
             *) name="$cleaned" ;;
           esac
 
-          # ensure single -ReBuild suffix
-          if printf '%s' "$name" | grep -q -E '(-ReBuild)$'; then
+          # ensure single -rebuild suffix
+          if printf '%s' "$name" | grep -q -E '(-rebuild)$'; then
             newname="${name}.apk"
           else
-            newname="${name}-ReBuild.apk"
+            newname="${name}-rebuild.apk"
           fi
 
           cp -f "$f" "$DST/$newname"
