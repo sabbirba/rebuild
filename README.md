@@ -9,19 +9,18 @@
 - Read License [GPL-3.0](https://github.com/sabbirba/rebuild/blob/main/LICENSE)
 
 ## Supported Apps
-<p></p>
+<p>
   <a href="#youtube"><img alt="YouTube" src="https://img.shields.io/badge/-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/></a>
   <a href="#music"><img alt="YouTube Music" src="https://img.shields.io/badge/-Music-FF0000?style=for-the-badge&logo=youtubemusic&logoColor=white"/></a>
   <a href="#googlephotos"><img alt="Google Photos" src="https://img.shields.io/badge/-Photos-4285F4?style=for-the-badge&logo=googlephotos&logoColor=white"/></a>
   <a href="#googlenews"><img alt="Google News" src="https://img.shields.io/badge/-Google%20News-4285F4?style=for-the-badge&logo=googlenews&logoColor=white"/></a>
-  <a href="#photomath"><img alt="Photomath" src="https://img.shields.io/badge/-Photomath-EF2121?style=for-the-badge&logo=photomath&logoColor=white"/></a>
+  <a href="#photomath"><img alt="Photomath" src="https://img.shields.io/badge/-Photomath-EF2121?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTIgMmMtNS41IDAtMTAgNC41LTEwIDEwczQuNSAxMCAxMCAxMCAxMC00LjUgMTAtMTAtNC41LTEwLTEwLTEwem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptLTQuNzUtMTMuNzVsMS4wNS0uMzUgMS4wNSAzLjE1IDMuMTUtMS4wNS0uMzUgMS4wNS0zLjE1IDMuMTUgMS4wNS0uMzUgMS4wNS0zLjE1LTMuMTUtMS4wNS4zNS0xLjA1IDMuMTUtMy4xNS0xLjA1LjM1LTEuMDUtMy4xNS0zLjE1eiIvPjwvc3ZnPg==&logoColor=white"/></a>
   <a href="#facebook"><img alt="Facebook" src="https://img.shields.io/badge/-Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"/></a>
   <a href="#messenger"><img alt="Messenger" src="https://img.shields.io/badge/-Messenger-0084FF?style=for-the-badge&logo=messenger&logoColor=white"/></a>
   <a href="#instagram"><img alt="Instagram" src="https://img.shields.io/badge/-Instagram-E1306C?style=for-the-badge&logo=instagram&logoColor=white"/></a>
 </p>
-
 <details>
-<summary><strong>Developer Installation / Quick start</strong></summary>
+<summary><strong>Developer Installation</strong></summary>
 
 1. Clone the repo:
    ```bash
@@ -152,10 +151,10 @@ This repository produces APK patched builds for the apps below. For each app: Fe
     - Usability: Preserves core Instagram features (feed, stories, reels, messaging). Patches are intended to alter UI/ads/behaviour without breaking core functionality.
     - Notes: See src/patches/instagram for included patches and configuration. Play Store updates will replace patched APKs unless blocked.
 
-## Developers / Credits
+## Credits
 
-- [ReVanced](https://revanced.app) — patches maintainer
-- [Sabbir Bin Abbas](https://sabbirba.pages.dev) — repository maintainer
+- [ReVanced](https://revanced.app) — patches
+- [Sabbir Bin Abbas](https://sabbirba.pages.dev) — repository
 
 ## License
 
