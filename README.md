@@ -13,12 +13,11 @@
   <a href="#youtube"><img alt="YouTube" src="https://img.shields.io/badge/-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/></a>
   <a href="#music"><img alt="YouTube Music" src="https://img.shields.io/badge/-Music-FF0000?style=for-the-badge&logo=youtubemusic&logoColor=white"/></a>
   <a href="#googlephotos"><img alt="Google Photos" src="https://img.shields.io/badge/-Photos-4285F4?style=for-the-badge&logo=googlephotos&logoColor=white"/></a>
+  <a href="#googlenews"><img alt="Google News" src="https://img.shields.io/badge/-Google%20News-4285F4?style=for-the-badge&logo=googlenews&logoColor=white"/></a>
+  <a href="#photomath"><img alt="Photomath" src="https://img.shields.io/badge/-Photomath-FF6B35?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJDMTMuMSAyIDE0IDIuOSAxNCA0VjE2QzE0IDE3LjEgMTMuMSAxOCA5IDE4QzQuOSAxOCA0IDE3LjEgNCAxNlY0QzQgMi45IDQuOSAyIDYgMkMxMC4yIDIgMTIgMkgxMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xNiA2VjE4QzE2IDE5LjEgMTUuMSAyMCAxMiAyMEM5LjkgMjAgOSAxOS4xIDkgMThWNkMxMCA2IDExIDYgMTIgNkMxNCA2IDE2IDYgMTZaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K&logoColor=white"/></a>
   <a href="#facebook"><img alt="Facebook" src="https://img.shields.io/badge/-Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"/></a>
   <a href="#messenger"><img alt="Messenger" src="https://img.shields.io/badge/-Messenger-0084FF?style=for-the-badge&logo=messenger&logoColor=white"/></a>
   <a href="#instagram"><img alt="Instagram" src="https://img.shields.io/badge/-Instagram-E1306C?style=for-the-badge&logo=instagram&logoColor=white"/></a>
-  <a href="#duolingo"><img alt="Duolingo" src="https://img.shields.io/badge/-Duolingo-58CC02?style=for-the-badge&logo=duolingo&logoColor=white"/></a>
-  <a href="#googlenews"><img alt="Google News" src="https://img.shields.io/badge/-Google%20News-4285F4?style=for-the-badge&logo=googlenews&logoColor=white"/></a>
-  <a href="#photomath"><img alt="Photomath" src="https://img.shields.io/badge/-Photomath-FF6B35?style=for-the-badge&logo=calculator&logoColor=white"/></a>
 </p>
 
 <details>
@@ -81,7 +80,6 @@ Supported apps (brief):
 - Facebook — patches to disable auto-play, in-app browser, video looping/sound, remove marketplace tab.
 - Messenger — patched Messenger APK.
 - Instagram — patched Instagram APK using the instagram patchset (see src/patches/instagram)
-- Duolingo — patched Duolingo APK with enhanced features.
 - Google News — patched Google News APK with UI and functionality improvements.
 - Photomath — patched Photomath APK with premium features.
 
@@ -114,6 +112,21 @@ This repository produces APK patched builds for the apps below. For each app: Fe
   - Use:
     - Usability: Enables Pixel/preview features (preloads, experience flags) on non‑Pixel devices to mimic Pixel behavior; core gallery, backup, and editing functions remain unchanged.
     - Notes: Some Pixel-only cloud features may still require Google account/device compatibility.
+
+<a id="googlenews"></a>
+- Google News
+  - Features: Default patched Google News APK with improved user experience
+  - Use:
+    - Usability: Maintains news aggregation and reading features with potential UI improvements and enhanced functionality.
+    - Notes: Patches focus on improving user experience without breaking core news functionality.
+
+<a id="photomath"></a>
+- Photomath
+  - Features: Default patched Photomath APK with enhanced math solving capabilities
+  - Use:
+    - Usability: Preserves camera-based math problem solving with potential premium feature unlocks.
+    - Notes: May include access to step-by-step solutions and advanced mathematical features.
+
 <a id="facebook"></a>
 - Facebook
   - Features:
@@ -138,27 +151,6 @@ This repository produces APK patched builds for the apps below. For each app: Fe
   - Use:
     - Usability: Preserves core Instagram features (feed, stories, reels, messaging). Patches are intended to alter UI/ads/behaviour without breaking core functionality.
     - Notes: See src/patches/instagram for included patches and configuration. Play Store updates will replace patched APKs unless blocked.
-
-<a id="duolingo"></a>
-- Duolingo
-  - Features: Default patched Duolingo APK with enhanced learning features
-  - Use:
-    - Usability: Preserves core language learning functionality while potentially adding premium features or removing restrictions.
-    - Notes: Patches may include unlocked premium content or ad removal.
-
-<a id="googlenews"></a>
-- Google News
-  - Features: Default patched Google News APK with improved user experience
-  - Use:
-    - Usability: Maintains news aggregation and reading features with potential UI improvements and enhanced functionality.
-    - Notes: Patches focus on improving user experience without breaking core news functionality.
-
-<a id="photomath"></a>
-- Photomath
-  - Features: Default patched Photomath APK with enhanced math solving capabilities
-  - Use:
-    - Usability: Preserves camera-based math problem solving with potential premium feature unlocks.
-    - Notes: May include access to step-by-step solutions and advanced mathematical features.
 
 ## Developers / Credits
 

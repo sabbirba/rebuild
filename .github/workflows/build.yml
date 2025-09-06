@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        run: [Youtube, Music, Photos, Facebook, Messenger, Instagram, Duolingo, GoogleNews, Photomath]
+        run: [Youtube, Music, Photos, GoogleNews, Photomath Facebook, Messenger, Instagram]
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2

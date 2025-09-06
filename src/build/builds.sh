@@ -50,14 +50,6 @@ build_instagram(){
     patch "instagram-arm64-v8a" "revanced"
 }
 
-build_duolingo_googlenews(){
-    revanced_dl
-    get_patches_key "Duolingo"
-    lock_version="1"
-    get_apk "com.duolingo" "duolingo" "duolingo-duolingo" "duolingo/duolingo-duolingo/duolingo-language-lessons" "Bundle"
-    patch "duolingo" "revanced"
-}
-
 build_googlenews(){
     revanced_dl
     get_patches_key "GoogleNews"
@@ -83,6 +75,9 @@ case "${1:-all}" in
     Photos)
         build_google_photos
         ;;
+    Photomath)
+        build_photomath
+        ;;
     Facebook)
         build_facebook
         ;;
@@ -92,24 +87,17 @@ case "${1:-all}" in
     Instagram)
         build_instagram
         ;;
-    Duolingo)
-        build_duolingo_googlenews
-        ;;
     GoogleNews)
         build_googlenews
-        ;;
-    Photomath)
-        build_photomath
         ;;
     all|*)
         build_youtube
         build_youtube_music
         build_google_photos
+        build_photomath
         build_facebook
         build_messenger
         build_instagram
-        build_duolingo_googlenews
         build_googlenews
-        build_photomath
         ;;
 esac

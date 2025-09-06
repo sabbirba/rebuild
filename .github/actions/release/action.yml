@@ -27,7 +27,7 @@ runs:
         {
             echo
             # human friendly date/time (e.g. "Friday 05 September 11:01 PM UTC")
-            echo "ReBuild YouTube, YouTube Music, Google Photos, Google News, Facebook, Messenger, Instagram, Duolingo, and Photomath APKs on $(date -u +'%A %d %B %I:%M %p UTC')."
+            echo "ReBuild YouTube, YouTube Music, Google Photos, Google News, Facebook, Messenger, Instagram, and Photomath APKs on $(date -u +'%A %d %B %I:%M %p UTC')."
             for apk in ./release/*"$cleaned"*.apk; do
                 if [ -f "$apk" ]; then
                     version_info=$(aapt dump badging "$apk" | awk -F"'" '/versionName=/{print $2}')
@@ -79,7 +79,6 @@ runs:
             *photomath*|*photomath-revanced*) name="Photomath" ;;
             *facebook*|*fb*) name="Facebook" ;;
             *googlenews*|*news*) name="GoogleNews" ;;
-            *duolingo*) name="Duolingo" ;;
             *) name="$cleaned" ;;
           esac
 
