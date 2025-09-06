@@ -75,9 +75,6 @@ case "${1:-all}" in
     Photos)
         build_google_photos
         ;;
-    Photomath)
-        build_photomath
-        ;;
     Facebook)
         build_facebook
         ;;
@@ -89,6 +86,9 @@ case "${1:-all}" in
         ;;
     GoogleNews)
         build_googlenews
+        ;;
+        Photomath)
+        build_photomath
         ;;
     all|*)
         build_youtube

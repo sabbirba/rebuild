@@ -14,10 +14,10 @@
   <a href="#music"><img alt="YouTube Music" src="https://img.shields.io/badge/-Music-FF0000?style=for-the-badge&logo=youtubemusic&logoColor=white"/></a>
   <a href="#googlephotos"><img alt="Google Photos" src="https://img.shields.io/badge/-Photos-4285F4?style=for-the-badge&logo=googlephotos&logoColor=white"/></a>
   <a href="#googlenews"><img alt="Google News" src="https://img.shields.io/badge/-Google%20News-4285F4?style=for-the-badge&logo=googlenews&logoColor=white"/></a>
-  <a href="#photomath"><img alt="Photomath" src="https://img.shields.io/badge/-Photomath-EF2121?style=for-the-badge&logo=photomath&logoColor=white"/></a>
   <a href="#facebook"><img alt="Facebook" src="https://img.shields.io/badge/-Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"/></a>
   <a href="#messenger"><img alt="Messenger" src="https://img.shields.io/badge/-Messenger-0084FF?style=for-the-badge&logo=messenger&logoColor=white"/></a>
   <a href="#instagram"><img alt="Instagram" src="https://img.shields.io/badge/-Instagram-E1306C?style=for-the-badge&logo=instagram&logoColor=white"/></a>
+  <a href="#photomath"><img alt="Photomath" src="https://img.shields.io/badge/-Photomath-EF2121?style=for-the-badge&logo=photomath&logoColor=white"/></a>
 </p>
 <details>
 <summary><strong>Developer Installation</strong></summary>
@@ -118,13 +118,6 @@ This repository produces APK patched builds for the apps below. For each app: Fe
     - Usability: Maintains news aggregation and reading features with potential UI improvements and enhanced functionality.
     - Notes: Patches focus on improving user experience without breaking core news functionality.nd enhanced functionality.
     - Notes: Patches focus on improving user experience without breaking core news functionality.
-<a id="photomath"></a>
-- Photomathomath"></a>
-  - Features: Default patched Photomath APK with enhanced math solving capabilities
-  - Use:ures: Default patched Photomath APK with enhanced math solving capabilities
-  - Use:
-    - Usability: Preserves camera-based math problem solving with potential premium feature unlocks.
-    - Notes: May include access to step-by-step solutions and advanced mathematical features.
 
 <a id="facebook"></a>
 - Facebook
@@ -150,6 +143,13 @@ This repository produces APK patched builds for the apps below. For each app: Fe
   - Use:
     - Usability: Preserves core Instagram features (feed, stories, reels, messaging). Patches are intended to alter UI/ads/behaviour without breaking core functionality.
     - Notes: See src/patches/instagram for included patches and configuration. Play Store updates will replace patched APKs unless blocked.
+  <a id="photomath"></a>
+  - Photomath
+  - Features: Default patched Photomath APK with enhanced math solving capabilities
+  - Use:ures: Default patched Photomath APK with enhanced math solving capabilities
+  - Use:
+    - Usability: Preserves camera-based math problem solving with potential premium feature unlocks.
+    - Notes: May include access to step-by-step solutions and advanced mathematical features.
 
 ## Credits
 
