@@ -24,35 +24,193 @@ on:
         required: true
         type: string
 jobs:
-  ReBuild:
-    name: ${{ matrix.run }}
+  ReBuild-Youtube:
+    name: ReBuild (YouTube)
     if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        run: [Youtube, Music, Photos, GoogleNews, Photomath, Facebook, Messenger, Instagram]
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
       - name: Preparing to patch
         uses: ./.github/actions/preparing
       - name: Check github connection
-        id: check-gh-rv
+        id: check-gh-rv-youtube
         run: bash src/etc/connection.sh
-      - name: ReBuild ${{ matrix.run }} APK
-        id: rebuild
-        if: steps.check-gh-rv.outputs.internet_error == '0'
-        run: bash src/build/builds.sh ${{ matrix.run }}
+      - name: ReBuild YouTube APK
+        id: rebuild-youtube
+        if: steps.check-gh-rv-youtube.outputs.internet_error == '0'
+        run: bash src/build/builds.sh Youtube
       - name: Upload artifacts
-        if: steps.check-gh-rv.outputs.internet_error == '0'
+        if: steps.check-gh-rv-youtube.outputs.internet_error == '0'
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.run }}
+          name: Youtube
+          path: ./release/*.apk
+
+  ReBuild-Music:
+    name: ReBuild (YouTube Music)
+    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Preparing to patch
+        uses: ./.github/actions/preparing
+      - name: Check github connection
+        id: check-gh-rv-music
+        run: bash src/etc/connection.sh
+      - name: ReBuild YouTube Music APK
+        id: rebuild-music
+        if: steps.check-gh-rv-music.outputs.internet_error == '0'
+        run: bash src/build/builds.sh Music
+      - name: Upload artifacts
+        if: steps.check-gh-rv-music.outputs.internet_error == '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Music
+          path: ./release/*.apk
+
+  ReBuild-Photos:
+    name: ReBuild (Google Photos)
+    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Preparing to patch
+        uses: ./.github/actions/preparing
+      - name: Check github connection
+        id: check-gh-rv-photos
+        run: bash src/etc/connection.sh
+      - name: ReBuild Google Photos APK
+        id: rebuild-photos
+        if: steps.check-gh-rv-photos.outputs.internet_error == '0'
+        run: bash src/build/builds.sh Photos
+      - name: Upload artifacts
+        if: steps.check-gh-rv-photos.outputs.internet_error == '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Photos
+          path: ./release/*.apk
+
+  ReBuild-GoogleNews:
+    name: ReBuild (Google News)
+    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Preparing to patch
+        uses: ./.github/actions/preparing
+      - name: Check github connection
+        id: check-gh-rv-news
+        run: bash src/etc/connection.sh
+      - name: ReBuild Google News APK
+        id: rebuild-news
+        if: steps.check-gh-rv-news.outputs.internet_error == '0'
+        run: bash src/build/builds.sh GoogleNews
+      - name: Upload artifacts
+        if: steps.check-gh-rv-news.outputs.internet_error == '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: GoogleNews
+          path: ./release/*.apk
+
+  ReBuild-Photomath:
+    name: ReBuild (Photomath)
+    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Preparing to patch
+        uses: ./.github/actions/preparing
+      - name: Check github connection
+        id: check-gh-rv-ph
+        run: bash src/etc/connection.sh
+      - name: ReBuild Photomath APK
+        id: rebuild-photomath
+        if: steps.check-gh-rv-ph.outputs.internet_error == '0'
+        run: bash src/build/builds.sh Photomath
+      - name: Upload artifacts
+        if: steps.check-gh-rv-ph.outputs.internet_error == '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Photomath
+          path: ./release/*.apk
+
+  ReBuild-Facebook:
+    name: ReBuild (Facebook)
+    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Preparing to patch
+        uses: ./.github/actions/preparing
+      - name: Check github connection
+        id: check-gh-rv-fb
+        run: bash src/etc/connection.sh
+      - name: ReBuild Facebook APK
+        id: rebuild-facebook
+        if: steps.check-gh-rv-fb.outputs.internet_error == '0'
+        run: bash src/build/builds.sh Facebook
+      - name: Upload artifacts
+        if: steps.check-gh-rv-fb.outputs.internet_error == '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Facebook
+          path: ./release/*.apk
+
+  ReBuild-Messenger:
+    name: ReBuild (Messenger)
+    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Preparing to patch
+        uses: ./.github/actions/preparing
+      - name: Check github connection
+        id: check-gh-rv-msgr
+        run: bash src/etc/connection.sh
+      - name: ReBuild Messenger APK
+        id: rebuild-messenger
+        if: steps.check-gh-rv-msgr.outputs.internet_error == '0'
+        run: bash src/build/builds.sh Messenger
+      - name: Upload artifacts
+        if: steps.check-gh-rv-msgr.outputs.internet_error == '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Messenger
+          path: ./release/*.apk
+
+  ReBuild-Instagram:
+    name: ReBuild (Instagram)
+    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Preparing to patch
+        uses: ./.github/actions/preparing
+      - name: Check github connection
+        id: check-gh-rv-ig
+        run: bash src/etc/connection.sh
+      - name: ReBuild Instagram APK
+        id: rebuild-instagram
+        if: steps.check-gh-rv-ig.outputs.internet_error == '0'
+        run: bash src/build/builds.sh Instagram
+      - name: Upload artifacts
+        if: steps.check-gh-rv-ig.outputs.internet_error == '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Instagram
           path: ./release/*.apk
 
   release:
     name: Create Release
-    needs: ReBuild
+    needs: [ReBuild-Youtube, ReBuild-Music, ReBuild-Photos, ReBuild-GoogleNews, ReBuild-Photomath, ReBuild-Facebook, ReBuild-Messenger, ReBuild-Instagram]
     runs-on: ubuntu-latest
     if: always() && contains(needs.*.result, 'success')
     steps:

@@ -20,6 +20,136 @@ red_log() {
     echo -e "\e[31m$1\e[0m"
 }
 
+# Number of download attempts for APK downloads
+DL_RETRIES=${DL_RETRIES:-3}
+# Number of archived log files to keep per app
+DL_ARCHIVES_KEEP=${DL_ARCHIVES_KEEP:-5}
+
+# Wrapper to call get_apk with retries and avoid aborting the whole script when set -e is in effect
+safe_get_apk() {
+	local args=("$@")
+	local attempt=1
+	local rc=1
+	local logdir="./download/logs"
+	mkdir -p "$logdir"
+	while [ $attempt -le $DL_RETRIES ]; do
+		local logfile="$logdir/${args[1]}-attempt${attempt}.log"
+		green_log "[+] Attempt $attempt to download ${args[1]} (log: $logfile)"
+		set +e
+		# Capture all stdout/stderr from get_apk into logfile for diagnostics
+		( get_apk "${args[@]}" ) >"$logfile" 2>&1
+		rc=$?
+		set -e
+		if [ $rc -eq 0 ]; then
+			green_log "[+] Successfully downloaded ${args[1]} (log: $logfile)"
+			# Compress and rotate logs for this app
+			manage_logs "${args[1]}"
+			return 0
+		fi
+		red_log "[-] Attempt $attempt failed for ${args[1]} (log: $logfile)"
+		attempt=$((attempt + 1))
+		sleep $((attempt))
+	done
+	red_log "[-] All $DL_RETRIES attempts failed for ${args[1]}. See logs in $logdir"
+	# Compress and rotate logs for this app even on failure
+	manage_logs "${args[1]}"
+	return $rc
+}
+
+# Wrapper for get_apkpure with retries
+safe_get_apkpure() {
+	local args=("$@")
+	local attempt=1
+	local rc=1
+	local logdir="./download/logs"
+	mkdir -p "$logdir"
+	while [ $attempt -le $DL_RETRIES ]; do
+		local logfile="$logdir/${args[1]}-apkpure-attempt${attempt}.log"
+		green_log "[+] Attempt $attempt to download ${args[1]} via apkpure (log: $logfile)"
+		set +e
+		( get_apkpure "${args[@]}" ) >"$logfile" 2>&1
+		rc=$?
+		set -e
+		if [ $rc -eq 0 ]; then
+			green_log "[+] Successfully downloaded ${args[1]} via apkpure (log: $logfile)"
+			manage_logs "${args[1]}"
+			return 0
+		fi
+		red_log "[-] Attempt $attempt failed for ${args[1]} via apkpure (log: $logfile)"
+		attempt=$((attempt + 1))
+		sleep $((attempt))
+	done
+	red_log "[-] All $DL_RETRIES attempts failed for ${args[1]} via apkpure. See logs in $logdir"
+	manage_logs "${args[1]}"
+	return $rc
+}
+
+# Wrapper for dl_gh with retries
+safe_dl_gh() {
+	local args=("$@")
+	local attempt=1
+	local rc=1
+	local logdir="./download/logs"
+	mkdir -p "$logdir"
+	while [ $attempt -le $DL_RETRIES ]; do
+		local logfile="$logdir/${args[0]// /_}-gh-attempt${attempt}.log"
+		green_log "[+] Attempt $attempt to download GitHub assets: ${args[0]} (log: $logfile)"
+		set +e
+		( dl_gh "${args[@]}" ) >"$logfile" 2>&1
+		rc=$?
+		set -e
+		if [ $rc -eq 0 ]; then
+			green_log "[+] Successfully downloaded GitHub assets: ${args[0]} (log: $logfile)"
+			manage_logs "${args[0]}"
+			return 0
+		fi
+		red_log "[-] Attempt $attempt failed for GitHub assets: ${args[0]} (log: $logfile)"
+		attempt=$((attempt + 1))
+		sleep $((attempt))
+	done
+	red_log "[-] All $DL_RETRIES attempts failed for GitHub assets: ${args[0]}. See logs in $logdir"
+	manage_logs "${args[0]}"
+	return $rc
+}
+
+# Compress per-app logs into a timestamped archive and keep only last $DL_ARCHIVES_KEEP archives
+manage_logs() {
+	local name="$1"
+	local logdir="./download/logs"
+	local archdir="$logdir/archives"
+	mkdir -p "$archdir"
+	# sanitize name for filenames
+	local safe_name
+	safe_name=$(printf '%s' "$name" | tr ' /' '__')
+	# find matching logs
+	shopt -s nullglob
+	local files=("$logdir/${safe_name}"*.log "$logdir/${name}"*.log)
+	shopt -u nullglob
+	if [ ${#files[@]} -eq 0 ]; then
+		return 0
+	fi
+	local ts
+	ts=$(date -u +%Y%m%dT%H%M%SZ)
+	local archive="$archdir/${safe_name}-$ts.tar.gz"
+	tar -czf "$archive" -C "$logdir" $(for f in "${files[@]}"; do printf '%s ' "$(basename "$f")"; done) > /dev/null 2>&1 || true
+	# remove original log files after archiving
+	for f in "${files[@]}"; do
+		rm -f "$f" || true
+	done
+	# keep only last DL_ARCHIVES_KEEP archives
+	local keep=$DL_ARCHIVES_KEEP
+	local archived=("$archdir/${safe_name}"-*.tar.gz)
+	if [ ${#archived[@]} -gt $keep ]; then
+		# sort and remove older ones
+		IFS=$'\n' sorted=($(printf "%s\n" "${archived[@]}" | sort))
+		local remove_count=$((${#sorted[@]} - keep))
+		for ((i=0;i<remove_count;i++)); do
+			rm -f "${sorted[i]}" || true
+		done
+	fi
+	echo "$archive"
+}
+
 #################################################
 
 # Download Github assets requirement:
