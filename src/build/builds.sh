@@ -58,6 +58,26 @@ build_messenger(){
     patch "messenger-arm64-v8a" "revanced"
 }
 
+build_tiktok(){
+    revanced_dl
+    get_patches_key "tiktok"
+    if ! safe_get_apk "com.zhiliaoapp.musically" "tiktok-arm64-v8a" "tiktok" "tiktok-pte-ltd/tik-tok-including-musical-ly" "arm64-v8a" "nodpi"; then
+        red_log "[-] TikTok download failed — skipping TikTok build"
+        return 0
+    fi
+    patch "tiktok-arm64-v8a" "revanced"
+}
+
+build_reddit(){
+    revanced_dl
+    get_patches_key "reddit"
+    if ! safe_get_apk "com.reddit.frontpage" "reddit-arm64-v8a" "reddit" "redditinc/reddit" "arm64-v8a" "nodpi"; then
+        red_log "[-] Reddit download failed — skipping Reddit build"
+        return 0
+    fi
+    patch "reddit-arm64-v8a" "revanced"
+}
+
 build_instagram(){
     revanced_dl
     get_patches_key "instagram"
@@ -106,6 +126,12 @@ case "${1:-all}" in
     Messenger)
         build_messenger
         ;;
+    TikTok|Tiktok)
+        build_tiktok
+        ;;
+    Reddit)
+        build_reddit
+        ;;
     Instagram)
         build_instagram
         ;;
@@ -122,6 +148,8 @@ case "${1:-all}" in
         build_photomath
         build_facebook
         build_messenger
+        build_tiktok
+        build_reddit
         build_instagram
         build_googlenews
         ;;

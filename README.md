@@ -16,6 +16,8 @@
   <a href="#googlenews"><img alt="Google News" src="https://img.shields.io/badge/-Google%20News-4285F4?style=for-the-badge&logo=googlenews&logoColor=white"/></a>
   <a href="#facebook"><img alt="Facebook" src="https://img.shields.io/badge/-Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"/></a>
   <a href="#messenger"><img alt="Messenger" src="https://img.shields.io/badge/-Messenger-0084FF?style=for-the-badge&logo=messenger&logoColor=white"/></a>
+  <a href="#tiktok"><img alt="TikTok" src="https://img.shields.io/badge/-TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white"/></a>
+  <a href="#reddit"><img alt="Reddit" src="https://img.shields.io/badge/-Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white"/></a>
   <a href="#instagram"><img alt="Instagram" src="https://img.shields.io/badge/-Instagram-E1306C?style=for-the-badge&logo=instagram&logoColor=white"/></a>
   <a href="#photomath"><img alt="Photomath" src="https://img.shields.io/badge/-Photomath-EF2121?style=for-the-badge&logo=photomath&logoColor=white"/></a>
 </p>
@@ -81,6 +83,8 @@ Supported apps (brief):
 - Instagram — patched Instagram APK using the instagram patchset (see src/patches/instagram)
 - Google News — patched Google News APK with UI and functionality improvements.
 - Photomath — patched Photomath APK with premium features.
+- TikTok — patched TikTok APK with usability improvements.
+- Reddit — patched Reddit APK with UX tweaks.
 
 See "Apps & Features" below for per-app features.
 
@@ -136,6 +140,18 @@ This repository produces APK patched builds for the apps below. For each app: Fe
   - Use:
     - Usability: Preserves core messaging, calls, and notifications; patches focus on removing undesirable behaviors while keeping app functionality intact.
     - Notes: Keep Messenger updated manually if desired.
+<a id="tiktok"></a>
+- TikTok
+  - Features: Default patched TikTok APK with quality-of-life tweaks
+  - Use:
+    - Usability: Preserves core feed, messaging, and upload features while applying patchset tweaks.
+    - Notes: Play Store updates will replace the patched APK unless blocked.
+<a id="reddit"></a>
+- Reddit
+  - Features: Default patched Reddit APK
+  - Use:
+    - Usability: Preserves browsing, posting, and messaging with patchset tweaks.
+    - Notes: Play Store updates will replace the patched APK unless blocked.
 <a id="instagram"></a>
 - Instagram
   - Features:

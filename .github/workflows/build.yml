@@ -185,6 +185,52 @@ jobs:
           name: Messenger
           path: ./release/*.apk
 
+  ReBuild-TikTok:
+    name: ReBuild (TikTok)
+    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Preparing to patch
+        uses: ./.github/actions/preparing
+      - name: Check github connection
+        id: check-gh-rv-tiktok
+        run: bash src/etc/connection.sh
+      - name: ReBuild TikTok APK
+        id: rebuild-tiktok
+        if: steps.check-gh-rv-tiktok.outputs.internet_error == '0'
+        run: bash src/build/builds.sh TikTok
+      - name: Upload artifacts
+        if: steps.check-gh-rv-tiktok.outputs.internet_error == '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: TikTok
+          path: ./release/*.apk
+
+  ReBuild-Reddit:
+    name: ReBuild (Reddit)
+    if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      - name: Preparing to patch
+        uses: ./.github/actions/preparing
+      - name: Check github connection
+        id: check-gh-rv-reddit
+        run: bash src/etc/connection.sh
+      - name: ReBuild Reddit APK
+        id: rebuild-reddit
+        if: steps.check-gh-rv-reddit.outputs.internet_error == '0'
+        run: bash src/build/builds.sh Reddit
+      - name: Upload artifacts
+        if: steps.check-gh-rv-reddit.outputs.internet_error == '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Reddit
+          path: ./release/*.apk
+
   ReBuild-Instagram:
     name: ReBuild (Instagram)
     if: ${{ github.ref == 'refs/heads/main' || github.event.inputs.org == 'ReBuild' || inputs.org == 'ReBuild' }}
@@ -210,7 +256,7 @@ jobs:
 
   release:
     name: Create Release
-    needs: [ReBuild-Youtube, ReBuild-Music, ReBuild-Photos, ReBuild-GoogleNews, ReBuild-Photomath, ReBuild-Facebook, ReBuild-Messenger, ReBuild-Instagram]
+    needs: [ReBuild-Youtube, ReBuild-Music, ReBuild-Photos, ReBuild-GoogleNews, ReBuild-Photomath, ReBuild-Facebook, ReBuild-Messenger, ReBuild-TikTok, ReBuild-Reddit, ReBuild-Instagram]
     runs-on: ubuntu-latest
     if: always() && contains(needs.*.result, 'success')
     steps:
